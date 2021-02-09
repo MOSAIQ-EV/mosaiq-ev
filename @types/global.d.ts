@@ -1,6 +1,7 @@
 import { Document } from "@contentful/rich-text-types";
-
-type ContentfulDateTime = string;
-type ContentfulJSON = Document;
+declare global {
+  type ContentfulDateTime = string;
+  type ContentfulJSON = Document;
+}
 
 export {};
