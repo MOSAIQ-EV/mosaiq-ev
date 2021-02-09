@@ -4,3 +4,5 @@ declare global {
   type ContentfulDateTime = string;
   type ContentfulJSON = Document;
 }
+
+export {};
