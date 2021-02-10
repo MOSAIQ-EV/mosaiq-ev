@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { PageContent_pageCollection_items_sectionsCollection_items_contentCollection_items_Board_memberCollection_items as Props } from "../generated/PageContent";
 import color from "../styles/color";
 import { boxShadow } from "../styles/mixins";
+import Link from "./Link";
 
 const Container = styled.div`
   display: flex;
@@ -29,9 +30,7 @@ const Name = styled.h3`
   margin-bottom: 0.5rem;
 `;
 
-const Mail = styled.a`
-  color: ${color.petrol};
-  font-weight: bold;
+const Mail = styled(Link)`
   text-decoration: none;
   margin-top: 0.5rem;
 `;

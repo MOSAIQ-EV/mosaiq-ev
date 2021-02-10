@@ -114,7 +114,7 @@ export default function Footer() {
           </IconContainer>
         </Box>
         <Row>
-          <NavItem href={"routes.imprint"}>Impressum</NavItem>
+          <NavItem href={"/impressum"}>Impressum</NavItem>
           <span>@MOSAIQ 2021</span>
         </Row>
       </Container>

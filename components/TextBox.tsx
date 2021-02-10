@@ -5,6 +5,7 @@ import styled from "styled-components";
 import color from "../styles/color";
 import { upToBreakpoint } from "../styles/mediaQueries";
 import { boxShadow } from "../styles/mixins";
+import Link from "./Link";
 import RichText from "./RichText";
 
 export const Container = styled.div`
@@ -18,7 +19,7 @@ export const Container = styled.div`
     padding: 0 1rem;
   }
 `;
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   margin: auto 0 1rem auto;
 `;
 export type Props = {

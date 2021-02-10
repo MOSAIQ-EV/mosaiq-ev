@@ -1,9 +1,11 @@
+import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
 
 import { PageContent_pageCollection_items_sectionsCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderTeaser as Props } from "../generated/PageContent";
 import color from "../styles/color";
 import { aspectRatio, boxShadow, hoverAnimation } from "../styles/mixins";
+import Link from "./Link";
 import { Headline4 } from "./Typography";
 
 const Container = styled.div`
@@ -38,22 +40,29 @@ const Headline = styled(Headline4)`
   margin-bottom: 1rem;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   display: block;
   text-align: right;
 `;
 
 export default function TextAndImageCard({ image, page }: Props) {
-  // const history = useHistory();
+  const router = useRouter();
+
   if (!image?.url || !page?.headline) return null;
-  //onClick={() => history.push(`/${page.sys.id}`)}
+
+  const link = `/projekte/${page.sys.id}`;
 
   return (
-    <Container>
+    <Container
+      onClick={(e) => {
+        e.preventDefault();
+        router.push(link);
+      }}
+    >
       <Image src={image.url} />
       <Info>
         <Headline>{page.headline}</Headline>
-        <StyledLink href={page.sys.id}>mehr</StyledLink>
+        <StyledLink href={link}>mehr</StyledLink>
       </Info>
     </Container>
   );

@@ -4,7 +4,7 @@ const breakpoints = {
   medium: 768,
   large: 1024,
   xlarge: 1200,
-  xxlarge: 1680
+  xxlarge: 1680,
 };
 
 export function upFromBreakpoint(breakpoint: keyof typeof breakpoints) {
