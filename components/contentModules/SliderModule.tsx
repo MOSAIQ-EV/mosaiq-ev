@@ -23,7 +23,7 @@ export default function SliderModule({ items }: Props) {
             return <SliderImage src={e?.image?.url ?? ""} key={i} />;
 
           case "SliderTeaser":
-            return <TextAndImageCard {...e} />;
+            return <TextAndImageCard {...e} key={i} />;
         }
       })}
     </Slider>

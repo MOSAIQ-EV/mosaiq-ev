@@ -109,7 +109,6 @@ export default function Event({
   highlight,
 }: Props) {
   if (!date || !eventDescription || !location || !name) return null;
-
   const time = new Date(date).toLocaleTimeString().slice(0, -3);
   const [day, month] = new Intl.DateTimeFormat("de", {
     day: "2-digit",

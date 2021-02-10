@@ -1,4 +1,3 @@
-import { gql } from "graphql-request";
 import { GetServerSideProps } from "next";
 import React from "react";
 
@@ -9,7 +8,7 @@ import { PageContent } from "../generated/PageContent";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const data = await client.request(Page_Content, {
-    name: "Startseite",
+    name: "Veröffentlichungen",
     id: "",
   });
 
@@ -23,6 +22,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default function StartPage(props: PageContent) {
+export default function Contact(props: PageContent) {
   return <Page {...props} />;
 }

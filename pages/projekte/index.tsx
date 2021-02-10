@@ -1,11 +1,10 @@
-import { gql } from "graphql-request";
 import { GetServerSideProps } from "next";
 import React from "react";
 
-import { client } from "../api";
-import { Page_Content } from "../api/querys";
-import Page from "../components/Page";
-import { PageContent } from "../generated/PageContent";
+import { client } from "../../api";
+import { Page_Content } from "../../api/querys";
+import Page from "../../components/Page";
+import { PageContent } from "../../generated/PageContent";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const data = await client.request(Page_Content, {
@@ -22,7 +21,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: { ...data },
   };
 };
-
-export default function StartPage(props: PageContent) {
+export default function Projects(props: PageContent) {
   return <Page {...props} />;
 }

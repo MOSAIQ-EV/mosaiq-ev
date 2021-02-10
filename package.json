@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "apollo:generate": "apollo codegen:generate --endpoint=https://graphql.contentful.com/content/v1/spaces/ruf9jx5ldq5a --header='Authorization: Bearer fkqFa6jREC1LQrj0gkyxT98aA7w7RumS8CTzHkJ-POc' --includes='pages/**/*.ts{,x}' --target=typescript --tagName gql --outputFlat generated --no-addTypename --passthroughCustomScalars --customScalarsPrefix=Contentful"
+    "apollo:generate": "apollo codegen:generate --endpoint=https://graphql.contentful.com/content/v1/spaces/ruf9jx5ldq5a --header='Authorization: Bearer fkqFa6jREC1LQrj0gkyxT98aA7w7RumS8CTzHkJ-POc' --includes='api/**/*.ts{,x}' --target=typescript --tagName gql --outputFlat generated --no-addTypename --passthroughCustomScalars --customScalarsPrefix=Contentful && rm -rf generated/globalTypes.ts"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",

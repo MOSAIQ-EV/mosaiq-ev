@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { PageContent_pageCollection_items_sectionsCollection_items_contentCollection_items_Board_memberCollection_items } from "../../generated/PageContent";
 import { upFromBreakpoint } from "../../styles/mediaQueries";
 import BoardCard from "../BoardCard";
+import ContentSection from "../ContentSection";
 
 const Container = styled.div`
   display: flex;
@@ -53,8 +54,10 @@ type Props = {
 };
 export default function Board({ items }: Props) {
   return (
-    <Container>
-      {items.map((e, i) => e && <BoardCard key={i} {...e} />)}
-    </Container>
+    <ContentSection>
+      <Container>
+        {items.map((e, i) => e && <BoardCard key={i} {...e} />)}
+      </Container>
+    </ContentSection>
   );
 }

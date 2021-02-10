@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { boxShadow } from "../../styles/mixins";
+import ContentSection from "../ContentSection";
 
 const RatioContainer = styled.div`
   position: relative;
@@ -32,15 +33,17 @@ type Props = {
 
 export default function Video({ url }: Props) {
   return (
-    <RatioContainer>
-      <iframe
-        title="Video"
-        src={`https://www.youtube-nocookie.com/embed/${getVideoIdFromUrl(
-          url,
-        )}?&rel=0&showinfo=0&modestbranding=1`}
-        frameBorder="0"
-        allowFullScreen
-      />
-    </RatioContainer>
+    <ContentSection>
+      <RatioContainer>
+        <iframe
+          title="Video"
+          src={`https://www.youtube-nocookie.com/embed/${getVideoIdFromUrl(
+            url,
+          )}?&rel=0&showinfo=0&modestbranding=1`}
+          frameBorder="0"
+          allowFullScreen
+        />
+      </RatioContainer>
+    </ContentSection>
   );
 }

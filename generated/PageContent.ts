@@ -193,4 +193,5 @@ export interface PageContent {
 
 export interface PageContentVariables {
   name: string;
+  id: string;
 }
