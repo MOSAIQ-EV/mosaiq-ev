@@ -1,7 +1,7 @@
-import { Document } from "@contentful/rich-text-types";
 import React from "react";
 import styled from "styled-components";
 
+import { PageContent_pageCollection_items_sectionsCollection_items_contentCollection_items_TextAndImage as Props } from "../../generated/PageContent";
 import { upFromBreakpoint } from "../../styles/mediaQueries";
 import ContentSection from "../ContentSection";
 import TextBox from "../TextBox";
@@ -59,14 +59,12 @@ const StyledContentSection = styled(ContentSection)`
   }
 `;
 
-type Props = { text: Document; image: string; link?: string };
-
-export default function TextAndImage({ text, image, link }: Props) {
+export default function TextAndImage({ text, image, link, document }: Props) {
   return (
     <StyledContentSection>
       <Container>
-        <Image src={image} />
-        <Text text={text} link={link} />
+        <Image src={image.url} />
+        <Text text={text} link={link} document={document} __typename="Text" />
       </Container>
     </StyledContentSection>
   );

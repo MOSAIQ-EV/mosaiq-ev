@@ -47,23 +47,10 @@ export default function Page(props: PageContent) {
               switch (c?.__typename) {
                 case "TextAndImage":
                   if (!c.text?.json || !c.image?.url) return null;
-                  return (
-                    <TextAndImage
-                      key={c.__typename + i}
-                      text={c.text?.json}
-                      image={c.image?.url}
-                      link={c.link?.sys.id}
-                    />
-                  );
+                  return <TextAndImage key={c.__typename + i} {...c} />;
                 case "Text":
-                  if (!c.text?.json) return null;
-                  return (
-                    <Text
-                      key={c.__typename + i}
-                      text={c.text.json}
-                      link={c.link?.sys.id}
-                    />
-                  );
+                  if (!c.text) return null;
+                  return <Text key={c.__typename + i} {...c} />;
                 case "Image":
                   if (!c.image?.url) return null;
                   return (

@@ -23,7 +23,7 @@ const Container = styled.div`
   padding: var(--grid-gap) 0 var(--grid-gap) var(--spacer);
   ::after {
     content: "";
-    min-width: calc(var(--spacer) - var(--grid-gap));
+    min-width: calc(var(--spacer) - var(--grid-gap) + 1px);
   }
   overflow: scroll;
   scroll-snap-type: x mandatory;

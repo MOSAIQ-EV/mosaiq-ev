@@ -19,7 +19,12 @@ export interface text_link {
   sys: text_link_sys;
 }
 
+export interface text_document {
+  url: string | null;
+}
+
 export interface text {
   text: text_text | null;
   link: text_link | null;
+  document: text_document | null;
 }

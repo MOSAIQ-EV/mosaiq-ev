@@ -43,6 +43,9 @@ export const Page_Content = gql`
         id
       }
     }
+    document {
+      url
+    }
   }
 
   fragment text on Text {
@@ -53,6 +56,9 @@ export const Page_Content = gql`
       sys {
         id
       }
+    }
+    document {
+      url
     }
   }
 
