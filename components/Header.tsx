@@ -1,11 +1,13 @@
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 import { navPaths } from "../page-config";
 import color from "../styles/color";
-import { upToBreakpoint } from "../styles/mediaQueries";
-import { Logo } from "./Icons";
+import { upFromBreakpoint, upToBreakpoint } from "../styles/mediaQueries";
+import BurgerMenu from "./BurgerMenu";
+import { Close, Logo } from "./Icons";
+import WaveSvgClipPath from "./WaveSvgClipPath";
 
 const Container = styled.header<{ visible: boolean }>`
   position: fixed;
@@ -23,19 +25,54 @@ const Container = styled.header<{ visible: boolean }>`
   transition: transform 300ms ease-out;
 `;
 
+const moveIn = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+`;
 const Nav = styled.nav<{ open: boolean }>`
   ${upToBreakpoint("large")} {
     ${(p) =>
-      p.open &&
-      css`
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100vh;
-        background: lightgreen;
-      `}
+      p.open
+        ? css`
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 1rem;
+            right: 0;
+            height: 90vh;
+            background: lightgreen;
+            display: flex;
+            flex-direction: column;
+            padding: 3rem 1rem;
+            clip-path: url(#nav-wave);
+            animation: ${moveIn} 500ms forwards;
+            & > * {
+              display: block;
+              animation: ${moveIn} 750ms forwards;
+              margin-left: auto;
+            }
+          `
+        : css`
+            display: none;
+          `}
   }
+`;
+
+const Backdrop = styled.div<{ visible: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0rem;
+  right: 0;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  user-select: none;
+  pointer-events: none;
+  opacity: ${(p) => (p.visible ? 1 : 0)};
+  transition: opacity 400ms ease-in-out;
 `;
 
 const NavItem = styled.a<{ active: boolean }>`
@@ -44,6 +81,10 @@ const NavItem = styled.a<{ active: boolean }>`
   color: ${color.dark};
   padding: 1rem;
   font-size: 1.2rem;
+  ${upToBreakpoint("large")} {
+    font-size: 8vmin;
+    color: ${color.light};
+  }
   :hover {
     ::after {
       transform: scaleX(1);
@@ -75,9 +116,21 @@ const NavItem = styled.a<{ active: boolean }>`
     `}
 `;
 
+const Menu = styled(BurgerMenu)`
+  margin-left: auto;
+  z-index: 2;
+  ${upFromBreakpoint("large")} {
+    display: none;
+  }
+`;
+
 const StyledLogo = styled(Logo)`
-  height: 3em;
-  margin-right: 4em;
+  height: 3rem;
+  margin-right: 4rem;
+  ${upToBreakpoint("medium")} {
+    height: 2rem;
+    margin-right: 2rem;
+  }
 `;
 
 export default function Header() {
@@ -114,6 +167,10 @@ export default function Header() {
       <a href="/">
         <StyledLogo />
       </a>
+      <Menu
+        onClick={() => setMobileNavOpen(!mobileNavOpen)}
+        open={mobileNavOpen}
+      />
       <Nav open={mobileNavOpen}>
         {Object.keys(navPaths).map((p) => (
           <NavItem
@@ -124,7 +181,12 @@ export default function Header() {
             {navPaths[p].name}
           </NavItem>
         ))}
+        <WaveSvgClipPath
+          id="nav-wave"
+          path="M0.0969336 0C0.289315 0 1 0 1 0C1 0 1 0.736327 1 0.912985C1 1.08964 0.636227 0.953988 0.406995 0.884297C0.269952 0.842633 0.128629 0.923929 0.0534431 0.803769C-0.0213951 0.684164 0.0771961 0.584552 0.0677694 0.444413C0.055886 0.267754 -0.0954477 0 0.0969336 0Z"
+        />
       </Nav>
+      <Backdrop visible={mobileNavOpen} />
     </Container>
   );
 }
