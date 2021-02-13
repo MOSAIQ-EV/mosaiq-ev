@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { PageContent_pageCollection_items_sectionsCollection_items_contentCollection_items_Board_memberCollection_items as Props } from "../generated/PageContent";
-import color from "../styles/color";
+import { PageContent_pageCollection_items_contentCollection_items_Board_memberCollection_items } from "../generated/PageContent";
 import { boxShadow } from "../styles/mixins";
 import Link from "./Link";
 
@@ -34,8 +33,12 @@ const Mail = styled(Link)`
   text-decoration: none;
   margin-top: 0.5rem;
 `;
-export default function BoardCard({ image, name, role, email }: Props) {
-  if (!image?.url || !name || !role || !email) return null;
+export default function BoardCard({
+  image,
+  name,
+  role,
+  email,
+}: PageContent_pageCollection_items_contentCollection_items_Board_memberCollection_items) {
   return (
     <Container>
       <Image src={image.url} />
