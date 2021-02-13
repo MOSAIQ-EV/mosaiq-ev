@@ -60,12 +60,7 @@ export default function Image({
       <Container>
         <ImageBox src={image.url} />
         {description && (
-          <TextBox
-            text={description}
-            link={link}
-            document={null}
-            __typename="Text"
-          />
+          <TextBox text={description} link={link} document={null} />
         )}
       </Container>
     </StyledContentSection>
