@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
 
-import { PageContent_pageCollection_items_sectionsCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderTeaser as Props } from "../generated/PageContent";
+import { PageContent_pageCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderTeaser } from "../generated/PageContent";
 import color from "../styles/color";
 import { aspectRatio, boxShadow, hoverAnimation } from "../styles/mixins";
 import Link from "./Link";
@@ -44,7 +44,10 @@ const StyledLink = styled(Link)`
   text-align: right;
 `;
 
-export default function TextAndImageCard({ image, page }: Props) {
+export default function TextAndImageCard({
+  image,
+  page,
+}: PageContent_pageCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderTeaser) {
   const router = useRouter();
 
   if (!image?.url || !page?.headline) return null;

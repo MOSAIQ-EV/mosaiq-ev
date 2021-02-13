@@ -22,7 +22,7 @@ export default function SliderModule({
       {itemsCollection.items.map((e, i) => {
         switch (e?.__typename) {
           case "SliderImage":
-            return <SliderImage src={e?.image?.url ?? ""} key={i} />;
+            return <SliderImage src={e?.image?.url} key={i} />;
 
           case "SliderTeaser":
             return <TextAndImageCard {...e} key={i} />;
