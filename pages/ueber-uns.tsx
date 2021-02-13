@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import React from "react";
 
 import { client } from "../api";
@@ -27,6 +28,7 @@ export default function AboutUs(props: PageContent) {
   return (
     <Page
       {...props}
+      title="Über uns"
       colors={[
         mainColor.blue,
         mainColor.purple,

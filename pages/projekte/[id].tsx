@@ -27,6 +27,7 @@ export default function Project(props: PageContent) {
   return (
     <Page
       {...props}
+      title="Projekte"
       colors={[
         mainColor.blue,
         mainColor.purple,

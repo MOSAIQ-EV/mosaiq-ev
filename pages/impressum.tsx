@@ -26,6 +26,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 export default function Imprint(props: PageContent) {
   return (
     <Page
+      title="Impressum"
       {...props}
       colors={[
         mainColor.purple,

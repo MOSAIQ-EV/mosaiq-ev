@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import React from "react";
 
 import { client } from "../api";
@@ -25,6 +26,7 @@ export default function Events(props: PageContent) {
   return (
     <Page
       {...props}
+      title="Veranstaltungen"
       colors={[
         mainColor.green,
         mainColor.blue,

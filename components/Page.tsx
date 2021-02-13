@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useCallback, useRef } from "react";
 
 import { PageContent } from "../generated/PageContent";
@@ -16,7 +17,8 @@ import PageHeadline from "./PageHeadline";
 export default function Page({
   pageCollection,
   colors,
-}: PageContent & { colors: string[] }) {
+  title,
+}: PageContent & { colors: string[]; title?: string }) {
   const pageHeadline = pageCollection?.items[0]?.headline;
   const nextBackgroundColor = useRef(0);
 
@@ -27,6 +29,11 @@ export default function Page({
 
   return (
     <>
+      {title && (
+        <Head>
+          <title>MOSAIQ e.V. - {title}</title>
+        </Head>
+      )}
       {pageHeadline && (
         <PageHeadline backgroundColor={colors[0]}>{pageHeadline}</PageHeadline>
       )}

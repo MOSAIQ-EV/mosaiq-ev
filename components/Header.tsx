@@ -46,7 +46,7 @@ const Nav = styled.nav<{ open: boolean }>`
             left: 1rem;
             right: 0;
             height: 90vh;
-            background: lightgreen;
+            background: ${color.greenSecondary};
             display: flex;
             flex-direction: column;
             padding: 3rem 1rem;
@@ -104,7 +104,7 @@ const NavItem = styled.a<{ active: boolean; color: string }>`
     right: 0;
     height: 10px;
     background-repeat: no-repeat;
-    bottom: 0.9rem;
+    bottom: 0.6rem;
     background-image: url("data:image/svg+xml,%3Csvg preserveAspectRatio='none' viewBox='0 0 144 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.05212 8.13657C24.7997 3.31469 37.5491 14.7115 54.5267 13.9855C71.5043 13.2595 91.5801 1.28769 138.999 8.13693' stroke='${(
       p,
     ) =>

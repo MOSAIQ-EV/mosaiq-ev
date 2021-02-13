@@ -27,6 +27,7 @@ export default function Publications(props: PageContent) {
   return (
     <Page
       {...props}
+      title="Veröffentlichungen"
       colors={[
         mainColor.red,
         mainColor.purple,

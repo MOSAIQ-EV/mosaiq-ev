@@ -27,6 +27,7 @@ export default function Contact(props: PageContent) {
   return (
     <Page
       {...props}
+      title="Kontakt"
       colors={[
         mainColor.red,
         mainColor.green,

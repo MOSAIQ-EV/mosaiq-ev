@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>MOSAIQ e.V.</title>
-        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Skeleton>
         <Component {...pageProps} />
