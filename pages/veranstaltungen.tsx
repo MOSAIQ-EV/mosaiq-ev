@@ -26,8 +26,8 @@ export default function Events(props: PageContent) {
     <Page
       {...props}
       colors={[
-        mainColor.blue,
         mainColor.green,
+        mainColor.blue,
         mainColor.purple,
         mainColor.red,
       ]}

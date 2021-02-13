@@ -9,7 +9,7 @@ import { mainColor } from "../styles/color";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const data = await client.request(Page_Content, {
-    name: "Veröffentlichungen",
+    name: "Kontakt",
     id: "",
   });
 
@@ -32,7 +32,6 @@ export default function Contact(props: PageContent) {
         mainColor.green,
         mainColor.purple,
         mainColor.blue,
-        mainColor.yellow,
       ]}
     />
   );

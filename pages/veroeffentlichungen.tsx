@@ -28,10 +28,10 @@ export default function Publications(props: PageContent) {
     <Page
       {...props}
       colors={[
-        mainColor.blue,
-        mainColor.purple,
-        mainColor.green,
         mainColor.red,
+        mainColor.purple,
+        mainColor.blue,
+        mainColor.green,
       ]}
     />
   );

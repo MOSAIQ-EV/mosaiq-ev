@@ -80,7 +80,7 @@ const Backdrop = styled.div<{ visible: boolean }>`
   }
 `;
 
-const NavItem = styled.a<{ active: boolean }>`
+const NavItem = styled.a<{ active: boolean; color: string }>`
   position: relative;
   text-decoration: none;
   color: ${color.black};
@@ -105,7 +105,13 @@ const NavItem = styled.a<{ active: boolean }>`
     height: 10px;
     background-repeat: no-repeat;
     bottom: 0.9rem;
-    background-image: url("data:image/svg+xml,%3Csvg preserveAspectRatio='none' viewBox='0 0 144 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.05212 8.13657C24.7997 3.31469 37.5491 14.7115 54.5267 13.9855C71.5043 13.2595 91.5801 1.28769 138.999 8.13693' stroke='%23858CC6' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    background-image: url("data:image/svg+xml,%3Csvg preserveAspectRatio='none' viewBox='0 0 144 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.05212 8.13657C24.7997 3.31469 37.5491 14.7115 54.5267 13.9855C71.5043 13.2595 91.5801 1.28769 138.999 8.13693' stroke='${(
+      p,
+    ) =>
+      p.color.replace(
+        "#",
+        "%23",
+      )}' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
     background-size: 100%;
     transform: scaleX(0.5);
     opacity: 0;
@@ -181,6 +187,7 @@ export default function Header() {
         {Object.keys(navPaths).map((p) => (
           <NavItem
             key={p}
+            color={navPaths[p].color}
             active={router.pathname === navPaths[p].path}
             href={navPaths[p].path}
           >

@@ -9,7 +9,7 @@ import { mainColor } from "../styles/color";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const data = await client.request(Page_Content, {
-    name: "Veröffentlichungen",
+    name: "Impressum",
     id: "",
   });
 
@@ -28,11 +28,10 @@ export default function Imprint(props: PageContent) {
     <Page
       {...props}
       colors={[
-        mainColor.red,
         mainColor.purple,
         mainColor.green,
+        mainColor.red,
         mainColor.blue,
-        mainColor.yellow,
       ]}
     />
   );
