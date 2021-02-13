@@ -1,7 +1,7 @@
-import { Document } from "@contentful/rich-text-types";
 import React from "react";
 import styled from "styled-components";
 
+import { PageContent_pageCollection_items_contentCollection_items_Image } from "../../generated/PageContent";
 import { upFromBreakpoint, upToBreakpoint } from "../../styles/mediaQueries";
 import { boxShadow } from "../../styles/mixins";
 import ContentSection from "../ContentSection";
@@ -31,7 +31,7 @@ const StyledContentSection = styled(ContentSection)`
   ${upFromBreakpoint("medium")} {
     :nth-child(odd) {
       ${Container} {
-        margin: 0 0 -2rem 6rem;
+        margin-left: 6rem;
         & > div {
           margin: 0 3rem 0 -2rem;
           transform: translateY(-2rem);
@@ -40,9 +40,9 @@ const StyledContentSection = styled(ContentSection)`
     }
     :nth-child(even) {
       ${Container} {
-        margin: 0 6rem -2rem 0;
+        margin-right: 6rem;
         & > div {
-          margin: 0 -2rem 0 3rem;
+          margin: 0 0 0 3rem;
           transform: translateY(-2rem);
         }
       }
@@ -50,14 +50,23 @@ const StyledContentSection = styled(ContentSection)`
   }
 `;
 
-type Props = { image: string; description?: Document; link?: string };
-
-export default function Image({ image, description, link }: Props) {
+export default function Image({
+  image,
+  description,
+  link,
+}: PageContent_pageCollection_items_contentCollection_items_Image) {
   return (
     <StyledContentSection>
       <Container>
-        <ImageBox src={image} />
-        {description && <TextBox text={description} link={link} />}
+        <ImageBox src={image.url} />
+        {description && (
+          <TextBox
+            text={description}
+            link={link}
+            document={null}
+            __typename="Text"
+          />
+        )}
       </Container>
     </StyledContentSection>
   );

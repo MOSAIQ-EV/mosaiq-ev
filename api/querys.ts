@@ -1,5 +1,13 @@
 import { gql } from "graphql-request";
-
+// ...textAndImage
+// ...text
+// ...image
+// ...video
+// ...accordion
+// ...longText
+// ...board
+// ...event
+// ...slider
 export const Page_Content = gql`
   query PageContent($name: String!, $id: String!) {
     pageCollection(
@@ -8,27 +16,26 @@ export const Page_Content = gql`
     ) {
       items {
         headline
-        sectionsCollection(limit: 10) {
+        contentCollection(limit: 20) {
           items {
-            headline
-            contentCollection(limit: 20) {
-              items {
-                __typename
-                ...textAndImage
-                ...text
-                ...image
-                ...video
-                ...accordion
-                ...longText
-                ...board
-                ...event
-                ...slider
-              }
-            }
+            __typename
+            ...sectionHeadline
+            ...textAndImage
+            ...text
+            ...image
+            ...slider
+            ...event
+            ...longText
+            ...accordion
+            ...video
+            ...board
           }
         }
       }
     }
+  }
+  fragment sectionHeadline on SectionHeadline {
+    headline
   }
 
   fragment textAndImage on TextAndImage {
@@ -47,7 +54,6 @@ export const Page_Content = gql`
       url
     }
   }
-
   fragment text on Text {
     text {
       json
@@ -61,7 +67,6 @@ export const Page_Content = gql`
       url
     }
   }
-
   fragment image on Image {
     image {
       url
@@ -74,42 +79,6 @@ export const Page_Content = gql`
         id
       }
     }
-  }
-  fragment video on Video {
-    url
-  }
-
-  fragment accordion on Accordion {
-    headline
-    text {
-      json
-    }
-  }
-
-  fragment longText on LongText {
-    text {
-      json
-    }
-  }
-
-  fragment board on Board {
-    memberCollection(limit: 10) {
-      items {
-        image {
-          url
-        }
-        name
-        role
-        email
-      }
-    }
-  }
-  fragment event on Event {
-    name
-    eventDescription
-    date
-    location
-    highlight
   }
 
   fragment slider on Slider {
@@ -136,6 +105,43 @@ export const Page_Content = gql`
       headline
       sys {
         id
+      }
+    }
+  }
+  fragment event on Event {
+    name
+    eventDescription
+    date
+    location
+    highlight
+  }
+
+  fragment longText on LongText {
+    text {
+      json
+    }
+  }
+
+  fragment accordion on Accordion {
+    headline
+    text {
+      json
+    }
+  }
+
+  fragment video on Video {
+    url
+  }
+
+  fragment board on Board {
+    memberCollection(limit: 10) {
+      items {
+        image {
+          url
+        }
+        name
+        role
+        email
       }
     }
   }

@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+import { PageContent_pageCollection_items_contentCollection_items_SectionHeadline } from "../generated/PageContent";
 import { maxWidth, sectionPadding } from "../styles/mixins";
-import { Headline1 } from "./Typography";
 import WaveSvgClipPath from "./WaveSvgClipPath";
 
-const Container = styled.section`
+const Container = styled.section<{ backgroundColor: string }>`
   position: relative;
   ${sectionPadding};
   ::before {
@@ -15,23 +15,24 @@ const Container = styled.section`
     left: 0;
     right: 0;
     height: 300%;
-    background: pink;
+    background: ${(p) => p.backgroundColor};
     z-index: -1;
     clip-path: url(#wave);
   }
 `;
 
-const StyledHeadline1 = styled(Headline1)`
+const StyledHeadline1 = styled.h1`
   ${maxWidth};
 `;
 
-type Props = {
-  headline: string;
-};
-
-export default function HeadlineSection({ headline }: Props) {
+export default function HeadlineSection({
+  headline,
+  backgroundColor,
+}: PageContent_pageCollection_items_contentCollection_items_SectionHeadline & {
+  backgroundColor: string;
+}) {
   return (
-    <Container>
+    <Container backgroundColor={backgroundColor}>
       <StyledHeadline1>{headline}</StyledHeadline1>
       <WaveSvgClipPath
         path="M0 0.0998401C0 0.0998401 0.189456 0.16203 0.349998

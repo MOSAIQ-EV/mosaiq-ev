@@ -1,46 +1,76 @@
-import styled from "styled-components";
+import { css } from "styled-components";
 
-import color from "../styles/color";
-import { upToBreakpoint } from "../styles/mediaQueries";
+import { upFromBreakpoint } from "../styles/mediaQueries";
 
-export const Headline1 = styled.h1`
-  font-size: 10vmin;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: ${color.light};
-  ${upToBreakpoint("small")} {
-    font-size: 11vmin;
-  }
-`;
-
-export const Headline2 = styled.h2`
-  font-size: 7vmin;
-  font-weight: bold;
-  ${upToBreakpoint("small")} {
-    font-size: 8vmin;
-  }
-`;
-
-export const Headline3 = styled.h3`
-  font-size: 5vmin;
-  font-weight: bold;
-  ${upToBreakpoint("small")} {
-    font-size: 6vmin;
-  }
-`;
-
-export const Headline4 = styled.h4`
-  font-size: 4vmin;
-  font-weight: bold;
-  ${upToBreakpoint("small")} {
-    font-size: 5vmin;
-  }
-`;
-
-export const Body1 = styled.div`
-  font-size: 1rem;
-`;
-
-export const Body2 = styled.div`
-  font-size: 0.75rem;
-`;
+export const font = {
+  text: css`
+    font-size: 1rem;
+    ${upFromBreakpoint("medium")} {
+      font-size: 1.1rem;
+    }
+  `,
+  headline1: css`
+    font-weight: bold;
+    font-size: 2.5rem;
+    ${upFromBreakpoint("small")} {
+      font-size: 3.5rem;
+    }
+    ${upFromBreakpoint("medium")} {
+      font-size: 4rem;
+    }
+    ${upFromBreakpoint("large")} {
+      font-size: 5rem;
+    }
+    ${upFromBreakpoint("xlarge")} {
+      font-size: 6rem;
+    }
+  `,
+  headline2: css`
+    font-weight: bold;
+    font-size: 2rem;
+    ${upFromBreakpoint("small")} {
+      font-size: 3rem;
+    }
+    ${upFromBreakpoint("medium")} {
+      font-size: 3.5rem;
+    }
+    ${upFromBreakpoint("large")} {
+      font-size: 4.2rem;
+    }
+    ${upFromBreakpoint("xlarge")} {
+      font-size: 5rem;
+    }
+  `,
+  headline3: css`
+    font-weight: bold;
+    font-size: 1.7rem;
+    ${upFromBreakpoint("small")} {
+      font-size: 2.5rem;
+    }
+    ${upFromBreakpoint("medium")} {
+      font-size: 3rem;
+    }
+    ${upFromBreakpoint("large")} {
+      font-size: 3.5rem;
+    }
+    ${upFromBreakpoint("xlarge")} {
+      font-size: 4rem;
+    }
+  `,
+  headline4: css`
+    font-weight: bold;
+    font-size: 1.5rem;
+    ${upFromBreakpoint("small")} {
+      font-size: 1.7rem;
+    }
+    ${upFromBreakpoint("medium")} {
+      font-size: 1.8rem;
+    }
+    ${upFromBreakpoint("large")} {
+      font-size: 1.9rem;
+    }
+    ${upFromBreakpoint("xlarge")} {
+      font-size: 2rem;
+    }
+  `,
+};

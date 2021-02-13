@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { PageContent_pageCollection_items_sectionsCollection_items_contentCollection_items_Board_memberCollection_items } from "../../generated/PageContent";
+import { PageContent_pageCollection_items_contentCollection_items_Board } from "../../generated/PageContent";
 import { upFromBreakpoint } from "../../styles/mediaQueries";
 import BoardCard from "../BoardCard";
 import ContentSection from "../ContentSection";
@@ -49,14 +49,15 @@ const Container = styled.div`
   }
 `;
 
-type Props = {
-  items: (PageContent_pageCollection_items_sectionsCollection_items_contentCollection_items_Board_memberCollection_items | null)[];
-};
-export default function Board({ items }: Props) {
+export default function Board({
+  memberCollection,
+}: PageContent_pageCollection_items_contentCollection_items_Board) {
   return (
     <ContentSection>
       <Container>
-        {items.map((e, i) => e && <BoardCard key={i} {...e} />)}
+        {memberCollection.items.map(
+          (e, i) => e && <BoardCard key={i} {...e} />,
+        )}
       </Container>
     </ContentSection>
   );

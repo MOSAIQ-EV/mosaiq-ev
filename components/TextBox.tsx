@@ -14,7 +14,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
-  background: ${color.light};
+  background: ${color.white};
   ${boxShadow}
   ${upToBreakpoint("small")} {
     padding: 0 1rem;

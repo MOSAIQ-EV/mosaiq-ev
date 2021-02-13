@@ -6,7 +6,8 @@ import { navPaths } from "../page-config";
 import color from "../styles/color";
 import { upFromBreakpoint, upToBreakpoint } from "../styles/mediaQueries";
 import BurgerMenu from "./BurgerMenu";
-import { Close, Logo } from "./Icons";
+import { Logo } from "./Icons";
+import { font } from "./Typography";
 import WaveSvgClipPath from "./WaveSvgClipPath";
 
 const Container = styled.header<{ visible: boolean }>`
@@ -20,7 +21,7 @@ const Container = styled.header<{ visible: boolean }>`
   justify-content: space-between;
   padding: 1rem 2rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  background-color: ${color.light};
+  background-color: ${color.white};
   transform: translateY(${(p) => (p.visible ? 0 : -100)}%);
   transition: transform 300ms ease-out;
 `;
@@ -33,6 +34,7 @@ const moveIn = keyframes`
     transform: translateX(0%);
   }
 `;
+
 const Nav = styled.nav<{ open: boolean }>`
   ${upToBreakpoint("large")} {
     ${(p) =>
@@ -73,17 +75,21 @@ const Backdrop = styled.div<{ visible: boolean }>`
   pointer-events: none;
   opacity: ${(p) => (p.visible ? 1 : 0)};
   transition: opacity 400ms ease-in-out;
+  ${upFromBreakpoint("large")} {
+    display: none;
+  }
 `;
 
 const NavItem = styled.a<{ active: boolean }>`
   position: relative;
   text-decoration: none;
-  color: ${color.dark};
+  color: ${color.black};
   padding: 1rem;
   font-size: 1.2rem;
   ${upToBreakpoint("large")} {
-    font-size: 8vmin;
-    color: ${color.light};
+    ${font.headline3};
+    font-weight: normal;
+    color: ${color.white};
   }
   :hover {
     ::after {

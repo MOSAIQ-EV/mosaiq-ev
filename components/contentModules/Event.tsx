@@ -1,26 +1,25 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { PageContent_pageCollection_items_sectionsCollection_items_contentCollection_items_Event as Props } from "../../generated/PageContent";
+import { PageContent_pageCollection_items_contentCollection_items_Event } from "../../generated/PageContent";
 import color from "../../styles/color";
-import { upFromBreakpoint } from "../../styles/mediaQueries";
+import { upFromBreakpoint, upToBreakpoint } from "../../styles/mediaQueries";
 import { boxShadow } from "../../styles/mixins";
 import ContentSection from "../ContentSection";
-import { Headline1, Headline2, Headline3 } from "../Typography";
 
 const Container = styled.div<{ highlight?: boolean | null }>`
   ${boxShadow};
   border-radius: 0.5rem;
   padding: 2rem;
   display: flex;
-  background: ${color.light};
+  background: ${color.white};
   @media (max-width: 600px) {
     flex-direction: column;
   }
   ${(p) =>
     p.highlight &&
     css`
-      background: ${color.petrol};
+      background: ${color.green};
       color: #fff;
       h1,
       a,
@@ -60,20 +59,13 @@ const DayMonth = styled.div`
   }
 `;
 
-const Day = styled(Headline1)`
-  color: #000;
-`;
-const Month = styled(Headline2)`
-  color: #000;
-  @media (max-width: 600px) {
-    font-size: 10vmin;
-    margin-left: 1rem;
-  }
-`;
 const Time = styled.h4`
   font-size: 4vmin;
   font-weight: bold;
   margin-top: 1.5rem;
+  ${upToBreakpoint("medium")} {
+    margin-top: 1rem;
+  }
 `;
 
 const Info = styled.div`
@@ -83,7 +75,7 @@ const Info = styled.div`
   flex: 1;
 `;
 
-const Name = styled(Headline3)`
+const Name = styled.h3`
   margin-bottom: 1rem;
 `;
 
@@ -107,7 +99,7 @@ export default function Event({
   location,
   name,
   highlight,
-}: Props) {
+}: PageContent_pageCollection_items_contentCollection_items_Event) {
   if (!date || !eventDescription || !location || !name) return null;
   const time = new Date(date).toLocaleTimeString().slice(0, -3);
   const [day, month] = new Intl.DateTimeFormat("de", {
@@ -122,8 +114,8 @@ export default function Event({
       <Container highlight={highlight}>
         <DateContainer>
           <DayMonth>
-            <Day>{day}</Day>
-            <Month>{month}</Month>
+            <h2>{day}</h2>
+            <h2>{month}</h2>
           </DayMonth>
           <Time>{time} Uhr</Time>
         </DateContainer>

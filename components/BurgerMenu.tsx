@@ -15,7 +15,7 @@ const Container = styled.div<{ open: boolean }>`
     position: absolute;
     height: calc(100% / 8);
     width: 100%;
-    background: ${(p) => (p.open ? color.light : color.primary)};
+    background: ${(p) => (p.open ? color.white : color.blue)};
     border-radius: 10px;
     opacity: 1;
     left: 0;

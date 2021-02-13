@@ -5,6 +5,7 @@ import { client } from "../../api";
 import { Page_Content } from "../../api/querys";
 import Page from "../../components/Page";
 import { PageContent } from "../../generated/PageContent";
+import { mainColor } from "../../styles/color";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const data = await client.request(Page_Content, {
@@ -23,5 +24,16 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 };
 
 export default function Project(props: PageContent) {
-  return <Page {...props} />;
+  return (
+    <Page
+      {...props}
+      colors={[
+        mainColor.blue,
+        mainColor.purple,
+        mainColor.green,
+        mainColor.red,
+        mainColor.yellow,
+      ]}
+    />
+  );
 }

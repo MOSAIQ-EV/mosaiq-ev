@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { PageContent_pageCollection_items_sectionsCollection_items_contentCollection_items_TextAndImage as Props } from "../../generated/PageContent";
+import { PageContent_pageCollection_items_contentCollection_items_TextAndImage } from "../../generated/PageContent";
 import { upFromBreakpoint } from "../../styles/mediaQueries";
 import ContentSection from "../ContentSection";
 import TextBox from "../TextBox";
@@ -59,12 +59,15 @@ const StyledContentSection = styled(ContentSection)`
   }
 `;
 
-export default function TextAndImage({ text, image, link, document }: Props) {
+export default function TextAndImage({
+  image,
+  ...text
+}: PageContent_pageCollection_items_contentCollection_items_TextAndImage) {
   return (
     <StyledContentSection>
       <Container>
         <Image src={image.url} />
-        <Text text={text} link={link} document={document} __typename="Text" />
+        <Text {...text} />
       </Container>
     </StyledContentSection>
   );

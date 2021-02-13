@@ -4,6 +4,8 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 
 import Skeleton from "../components/Skeleton";
+import { font } from "../components/Typography";
+import color from "../styles/color";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -22,7 +24,26 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     height: 100%;
-
+  }
+  h1{
+    text-transform: uppercase;
+    color: ${color.white};
+    ${font.headline1}
+  }
+  h2{
+    ${font.headline2}
+  }
+  h3{
+    ${font.headline3}
+  }
+  h4{
+    ${font.headline4}
+  }
+  p {
+    margin: 1rem 0;
+  }
+  div, span, p, a {
+    ${font.text}
   }
 `;
 

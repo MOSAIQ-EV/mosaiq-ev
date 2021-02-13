@@ -4,7 +4,6 @@ import styled from "styled-components";
 import color from "../styles/color";
 import { upFromBreakpoint, upToBreakpoint } from "../styles/mediaQueries";
 import { Facebook, Instagram } from "./Icons";
-import { Headline3 as Headline4 } from "./Typography";
 import WaveSvgClipPath from "./WaveSvgClipPath";
 
 const Container = styled.footer`
@@ -24,7 +23,7 @@ const Container = styled.footer`
     grid-template-rows: 1fr;
     grid-gap: 2rem;
   }
-  background-color: ${color.primary};
+  background-color: ${color.blue};
   --wave-height: 4rem;
   margin-top: var(--wave-height);
   ::before {
@@ -34,7 +33,7 @@ const Container = styled.footer`
     right: 0;
     left: 0;
     height: var(--wave-height);
-    background-color: ${color.primary};
+    background-color: ${color.blue};
     clip-path: url(#footer-wave);
   }
 `;
@@ -42,7 +41,7 @@ const Container = styled.footer`
 const Box = styled.div`
   display: flex;
   flex-direction: column;
-  color: ${color.light};
+  color: ${color.white};
   & > *:not(:first-child) {
     margin-top: 1rem;
   }
@@ -54,21 +53,26 @@ const Box = styled.div`
 `;
 
 const NavItem = styled.a`
-  color: ${color.light};
+  color: ${color.white};
 `;
 
 const IconContainer = styled.div`
   display: flex;
-  height: 3rem;
-  & > svg:first-child {
+  & > a:first-child {
     margin-right: 2rem;
+  }
+  a {
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    display: block;
   }
 `;
 
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
-  color: ${color.light};
+  color: ${color.white};
   margin-top: 2rem;
   ${upFromBreakpoint("medium")} {
     grid-column-end: span 2;
@@ -83,18 +87,18 @@ export default function Footer() {
     <>
       <Container>
         <Box>
-          <Headline4>Mitmachen</Headline4>
+          <h4>Mitmachen</h4>
           <NavItem href="/veranstaltungen">Veranstaltungen</NavItem>
           <NavItem href="/kontakt">Kontakt</NavItem>
         </Box>
         <Box>
-          <Headline4>MOSAIQ buchen</Headline4>
+          <h4>MOSAIQ buchen</h4>
           <NavItem href="/projekte">Kooperationen</NavItem>
           <NavItem href="/kontakt">Workshop</NavItem>
           <NavItem href="/kontakt">Seminaranfragen</NavItem>
         </Box>
         <Box>
-          <Headline4>Fördern</Headline4>
+          <h4>Fördern</h4>
           <span>
             IBAN: <b>DE58 2005 0550 1268 1351 81</b>
           </span>
@@ -107,15 +111,19 @@ export default function Footer() {
           </span>
         </Box>
         <Box>
-          <Headline4>Social Media</Headline4>
+          <h4>Social Media</h4>
           <IconContainer>
-            <Instagram />
-            <Facebook />
+            <a href="https://www.instagram.com/mosaiq_hamburg" target="__blank">
+              <Instagram />
+            </a>
+            <a href="https://www.facebook.com/MOSAIQhamburg" target="__blank">
+              <Facebook />
+            </a>
           </IconContainer>
         </Box>
         <Row>
           <NavItem href={"/impressum"}>Impressum</NavItem>
-          <span>@MOSAIQ 2021</span>
+          <span>@MOSAIQ {new Date().getFullYear()}</span>
         </Row>
       </Container>
       <WaveSvgClipPath

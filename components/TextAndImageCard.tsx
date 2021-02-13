@@ -6,7 +6,6 @@ import { PageContent_pageCollection_items_sectionsCollection_items_contentCollec
 import color from "../styles/color";
 import { aspectRatio, boxShadow, hoverAnimation } from "../styles/mixins";
 import Link from "./Link";
-import { Headline4 } from "./Typography";
 
 const Container = styled.div`
   ${boxShadow};
@@ -25,11 +24,11 @@ const Image = styled.img`
 `;
 
 const Info = styled.div`
-  background: ${color.light};
+  background: ${color.white};
   padding: 1rem;
 `;
 
-const Headline = styled(Headline4)`
+const Headline = styled.h4`
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;

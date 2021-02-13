@@ -11,7 +11,7 @@ const Container = styled.div<{ direction: Direction; visible: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${color.petrol};
+  color: ${color.greenSecondary};
   cursor: pointer;
   ${(p) =>
     p.visible
