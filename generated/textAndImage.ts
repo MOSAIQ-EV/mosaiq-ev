@@ -13,6 +13,7 @@ export interface textAndImage_text {
 
 export interface textAndImage_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface textAndImage_link_sys {

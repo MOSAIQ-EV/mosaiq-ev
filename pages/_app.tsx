@@ -39,9 +39,6 @@ const GlobalStyle = createGlobalStyle`
   h4{
     ${font.headline4}
   }
-  p {
-    margin: 1rem 0;
-  }
   div, span, p, a {
     ${font.text}
   }

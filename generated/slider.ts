@@ -9,6 +9,7 @@
 
 export interface slider_itemsCollection_items_SliderTeaser_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface slider_itemsCollection_items_SliderTeaser_page_sys {
@@ -28,6 +29,7 @@ export interface slider_itemsCollection_items_SliderTeaser {
 
 export interface slider_itemsCollection_items_SliderImage_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface slider_itemsCollection_items_SliderImage {

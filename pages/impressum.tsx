@@ -26,13 +26,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
 export default function Imprint(props: PageContent) {
   return (
     <Page
+      noPageHeadlineOverlay
       title="Impressum"
       {...props}
       colors={[
-        mainColor.purple,
         mainColor.green,
-        mainColor.red,
+        mainColor.purple,
         mainColor.blue,
+        mainColor.red,
       ]}
     />
   );

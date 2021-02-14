@@ -1,9 +1,9 @@
-import { Document } from "@contentful/rich-text-types";
 import React, { useState } from "react";
 import styled from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_Accordion } from "../../generated/PageContent";
 import color from "../../styles/color";
+import { upFromBreakpoint } from "../../styles/mediaQueries";
 import { maxWidth, sectionPadding } from "../../styles/mixins";
 import { Collapse } from "../Collapse";
 import { ArrowDown } from "../Icons";
@@ -13,6 +13,10 @@ import WaveSvgClipPath from "../WaveSvgClipPath";
 const WavedContainer = styled.section<{ backgroundColor: string }>`
   position: relative;
   padding: 6vw 0;
+  margin: 1rem 0;
+  ${upFromBreakpoint("medium")} {
+    margin: 2rem 0;
+  }
   ::before {
     content: "";
     position: absolute;
@@ -44,6 +48,9 @@ const Content = styled.div`
   ${maxWidth}
   ${sectionPadding}
   color: ${color.white};
+  a {
+    color: ${color.white};
+  }
 `;
 
 const Headline = styled.h1<{ expanded: boolean }>`
@@ -83,7 +90,7 @@ export default function Accordion({
       </div>
       <WaveSvgClipPath
         id="top-wave"
-        path="M0 0.0566108C0 0.0566108 0.189456 1.0196 0.349998 1.0073C0.473128 0.997871 0.576841 0.0165815 0.700002 0.00755614C0.818454 -0.00112414 0.999994 0.406927 0.999994 0.406927L1 1.0073H0.649996H0.349998H0V0.0566108Z"
+        path="M0 1C0 1 0.0150256 0.2711 0.137 0.0532632C0.258974 -0.164574 0.352613 0.5241 0.492 0.503657C0.658995 0.479166 0.604035 0.00298466 0.772 4.8848e-05C0.939965 -0.00288696 1 0.127487 1 0.127487V1H0Z"
       />
     </WavedContainer>
   );

@@ -18,6 +18,7 @@ export interface PageContent_pageCollection_items_contentCollection_items_TextAn
 
 export interface PageContent_pageCollection_items_contentCollection_items_TextAndImage_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_TextAndImage_link_sys {
@@ -65,6 +66,7 @@ export interface PageContent_pageCollection_items_contentCollection_items_Text {
 
 export interface PageContent_pageCollection_items_contentCollection_items_Image_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_Image_description {
@@ -88,6 +90,7 @@ export interface PageContent_pageCollection_items_contentCollection_items_Image 
 
 export interface PageContent_pageCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderTeaser_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderTeaser_page_sys {
@@ -107,6 +110,7 @@ export interface PageContent_pageCollection_items_contentCollection_items_Slider
 
 export interface PageContent_pageCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderImage_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderImage {
@@ -160,6 +164,7 @@ export interface PageContent_pageCollection_items_contentCollection_items_Video 
 
 export interface PageContent_pageCollection_items_contentCollection_items_Board_memberCollection_items_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_Board_memberCollection_items {

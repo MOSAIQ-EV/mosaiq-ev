@@ -75,10 +75,6 @@ const Info = styled.div`
   flex: 1;
 `;
 
-const Name = styled.h3`
-  margin-bottom: 1rem;
-`;
-
 const Location = styled.a`
   display: block;
   text-decoration: none;
@@ -120,7 +116,7 @@ export default function Event({
           <Time>{time} Uhr</Time>
         </DateContainer>
         <Info>
-          <Name>{name}</Name>
+          <h3>{name}</h3>
           <p>{eventDescription}</p>
           <Location
             href={`http://maps.google.com/?q=${location}`}

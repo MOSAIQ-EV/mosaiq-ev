@@ -9,6 +9,7 @@
 
 export interface sliderTeaser_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface sliderTeaser_page_sys {

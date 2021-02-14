@@ -3,16 +3,35 @@ import { Document } from "@contentful/rich-text-types";
 import React from "react";
 import styled from "styled-components";
 
+import color from "../styles/color";
+import { upFromBreakpoint } from "../styles/mediaQueries";
+
 const Container = styled.div`
   overflow: hidden;
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-weight: bold;
+  & > p,
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 0;
   }
-  p {
-    margin: 1rem 0;
+  & > p,
+  ul,
+  ol + p,
+  ul,
+  ol {
+    margin-top: 1rem;
+  }
+  a {
+    color: ${color.green};
+    font-weight: bold;
+    text-decoration: none;
+  }
+  ul,
+  ol {
+    margin-left: 2rem;
+    ${upFromBreakpoint("medium")} {
+      margin-left: 3rem;
+    }
   }
 `;
 

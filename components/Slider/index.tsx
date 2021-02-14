@@ -70,7 +70,6 @@ export default function Slider({ children }: Props) {
     <Wrapper>
       <Container ref={sliderRef} onScroll={resizeHandler}>
         {children}
-        {children}
       </Container>
       <Arrow
         direction={"left"}

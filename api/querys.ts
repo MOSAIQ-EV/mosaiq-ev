@@ -1,13 +1,5 @@
 import { gql } from "graphql-request";
-// ...textAndImage
-// ...text
-// ...image
-// ...video
-// ...accordion
-// ...longText
-// ...board
-// ...event
-// ...slider
+
 export const Page_Content = gql`
   query PageContent($name: String!, $id: String!) {
     pageCollection(
@@ -44,6 +36,7 @@ export const Page_Content = gql`
     }
     image {
       url
+      description
     }
     link {
       sys {
@@ -70,6 +63,7 @@ export const Page_Content = gql`
   fragment image on Image {
     image {
       url
+      description
     }
     description {
       json
@@ -94,12 +88,14 @@ export const Page_Content = gql`
   fragment sliderImage on SliderImage {
     image {
       url
+      description
     }
   }
 
   fragment sliderTeaser on SliderTeaser {
     image {
       url
+      description
     }
     page {
       headline
@@ -138,6 +134,7 @@ export const Page_Content = gql`
       items {
         image {
           url
+          description
         }
         name
         role

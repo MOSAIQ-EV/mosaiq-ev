@@ -18,15 +18,19 @@ export default function Page({
   pageCollection,
   colors,
   title,
-}: PageContent & { colors: string[]; title?: string }) {
+  noPageHeadlineOverlay,
+}: PageContent & {
+  colors: string[];
+  title?: string;
+  noPageHeadlineOverlay?: boolean;
+}) {
   const pageHeadline = pageCollection?.items[0]?.headline;
   const nextBackgroundColor = useRef(0);
-
+  const textImageModuleCount = useRef(0);
   const getBackgroundColor = useCallback(() => {
     nextBackgroundColor.current += 1;
     return colors[nextBackgroundColor.current % colors.length];
   }, [colors]);
-
   return (
     <>
       {title && (
@@ -35,9 +39,19 @@ export default function Page({
         </Head>
       )}
       {pageHeadline && (
-        <PageHeadline backgroundColor={colors[0]}>{pageHeadline}</PageHeadline>
+        <PageHeadline
+          noOverlav={noPageHeadlineOverlay}
+          backgroundColor={colors[0]}
+        >
+          {pageHeadline}
+        </PageHeadline>
       )}
       {pageCollection?.items[0]?.contentCollection.items.map((c, i) => {
+        if (c.__typename === "TextAndImage") {
+          textImageModuleCount.current += 1;
+        } else {
+          textImageModuleCount.current = 0;
+        }
         switch (c.__typename) {
           case "SectionHeadline":
             return (
@@ -48,7 +62,13 @@ export default function Page({
               />
             );
           case "TextAndImage":
-            return <TextAndImage key={c.__typename + i} {...c} />;
+            return (
+              <TextAndImage
+                reverse={textImageModuleCount.current % 2 === 0}
+                key={c.__typename + i}
+                {...c}
+              />
+            );
           case "Text":
             return <Text key={c.__typename + i} {...c} />;
           case "Image":

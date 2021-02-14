@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { PageContent_pageCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderTeaser } from "../generated/PageContent";
 import color from "../styles/color";
 import { aspectRatio, boxShadow, hoverAnimation } from "../styles/mixins";
+import Img from "./Img";
 import Link from "./Link";
 
 const Container = styled.div`
@@ -18,8 +19,7 @@ const Container = styled.div`
   ${hoverAnimation}
 `;
 
-const Image = styled.img`
-  object-fit: cover;
+const Image = styled(Img)`
   ${aspectRatio(4 / 3)}
 `;
 
@@ -36,7 +36,6 @@ const Headline = styled.h4`
   -webkit-line-clamp: 2;
   hyphens: auto;
   width: 300px;
-  margin-bottom: 1rem;
 `;
 
 const StyledLink = styled(Link)`
@@ -61,7 +60,7 @@ export default function TextAndImageCard({
         router.push(link);
       }}
     >
-      <Image src={image.url} />
+      <Image url={image.url} author={image.description} />
       <Info>
         <Headline>{page.headline}</Headline>
         <StyledLink href={link}>mehr</StyledLink>

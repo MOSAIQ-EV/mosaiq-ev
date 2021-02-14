@@ -5,11 +5,11 @@ import { PageContent_pageCollection_items_contentCollection_items_Image } from "
 import { upFromBreakpoint, upToBreakpoint } from "../../styles/mediaQueries";
 import { boxShadow } from "../../styles/mixins";
 import ContentSection from "../ContentSection";
+import Img from "../Img";
 import TextBox from "../TextBox";
 
-export const ImageBox = styled.img`
+export const ImageBox = styled(Img)`
   border-radius: 0.5rem;
-  object-fit: cover;
   max-width: 100%;
   ${boxShadow};
   ${upToBreakpoint("medium")} {
@@ -58,7 +58,7 @@ export default function Image({
   return (
     <StyledContentSection>
       <Container>
-        <ImageBox src={image.url} />
+        <ImageBox url={image.url} author={image.description} />
         {description && (
           <TextBox text={description} link={link} document={null} />
         )}

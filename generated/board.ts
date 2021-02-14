@@ -9,6 +9,7 @@
 
 export interface board_memberCollection_items_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface board_memberCollection_items {

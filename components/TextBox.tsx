@@ -11,16 +11,17 @@ import RichText from "./RichText";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1rem 2rem;
+  justify-content: space-between;
+  padding: 2rem;
   border-radius: 0.5rem;
   background: ${color.white};
   ${boxShadow}
   ${upToBreakpoint("small")} {
-    padding: 0 1rem;
+    padding: 1rem;
   }
 `;
 const StyledLink = styled(Link)`
-  margin: auto 0 1rem auto;
+  margin: 1rem 0 0 auto;
 `;
 export type Props = Omit<
   PageContent_pageCollection_items_contentCollection_items_Text,

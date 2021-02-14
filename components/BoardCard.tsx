@@ -25,10 +25,6 @@ const Info = styled.div`
   padding: 1rem;
 `;
 
-const Name = styled.h3`
-  margin-bottom: 0.5rem;
-`;
-
 const Mail = styled(Link)`
   text-decoration: none;
   margin-top: 0.5rem;
@@ -43,7 +39,7 @@ export default function BoardCard({
     <Container>
       <Image src={image.url} />
       <Info>
-        <Name>{name}</Name>
+        <h3>{name}</h3>
         <span>{role}</span>
         <Mail href={`mailto:${email}`}>{email}</Mail>
       </Info>

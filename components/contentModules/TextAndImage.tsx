@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_TextAndImage } from "../../generated/PageContent";
 import { upFromBreakpoint } from "../../styles/mediaQueries";
@@ -27,46 +27,49 @@ const Image = styled(ImageBox)`
   width: 100%;
   border-radius: 0.5rem 0.5rem 0 0;
   ${upFromBreakpoint("medium")} {
-    width: 50%;
+    min-width: 50%;
     border-radius: 0.5rem;
   }
 `;
 
-const StyledContentSection = styled(ContentSection)`
+const StyledContentSection = styled(ContentSection)<{ reverse: boolean }>`
   ${upFromBreakpoint("medium")} {
-    :nth-child(even) {
-      ${Container} {
-        flex-direction: row-reverse;
-        ${Text} {
-          transform: translate3d(1rem, 2rem, 0);
-        }
-        ${Image} {
-          transform: translate3d(-1rem, 0rem, 0);
-        }
+    ${Container} {
+      flex-direction: row;
+      ${Text} {
+        transform: translate3d(-1rem, 2rem, 0);
+      }
+      ${Image} {
+        transform: translate3d(1rem, 0rem, 0);
       }
     }
-    :nth-child(odd) {
-      ${Container} {
-        flex-direction: row;
-        ${Text} {
-          transform: translate3d(-1rem, 2rem, 0);
+    ${(p) =>
+      p.reverse &&
+      css`
+        ${Container} {
+          flex-direction: row-reverse;
+          ${Text} {
+            transform: translate3d(1rem, 2rem, 0);
+          }
+          ${Image} {
+            transform: translate3d(-1rem, 0rem, 0);
+          }
         }
-        ${Image} {
-          transform: translate3d(1rem, 0rem, 0);
-        }
-      }
-    }
+      `}
   }
 `;
 
 export default function TextAndImage({
   image,
+  reverse,
   ...text
-}: PageContent_pageCollection_items_contentCollection_items_TextAndImage) {
+}: PageContent_pageCollection_items_contentCollection_items_TextAndImage & {
+  reverse: boolean;
+}) {
   return (
-    <StyledContentSection>
+    <StyledContentSection reverse={reverse}>
       <Container>
-        <Image src={image.url} />
+        <Image url={image.url} author={image.description} />
         <Text {...text} />
       </Container>
     </StyledContentSection>

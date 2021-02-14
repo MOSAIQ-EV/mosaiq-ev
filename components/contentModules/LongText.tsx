@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_LongText } from "../../generated/PageContent";
 import color from "../../styles/color";
+import { upFromBreakpoint } from "../../styles/mediaQueries";
 import { maxWidth, sectionPadding } from "../../styles/mixins";
 import RichText from "../RichText";
 import WaveSvgClipPath from "../WaveSvgClipPath";
@@ -11,6 +12,10 @@ import WaveSvgClipPath from "../WaveSvgClipPath";
 const WavedContainer = styled.section<{ backgroundColor: string }>`
   position: relative;
   padding: 6vw 0;
+  margin: 1rem 0;
+  ${upFromBreakpoint("medium")} {
+    margin: 2rem 0;
+  }
   ::before {
     content: "";
     position: absolute;
@@ -35,6 +40,9 @@ const WavedContainer = styled.section<{ backgroundColor: string }>`
   & > div {
     width: 100%;
     background: ${(p) => p.backgroundColor};
+  }
+  a {
+    color: ${color.white};
   }
 `;
 

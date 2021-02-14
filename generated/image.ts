@@ -9,6 +9,7 @@
 
 export interface image_image {
   url: string | null;
+  description: string | null;
 }
 
 export interface image_description {

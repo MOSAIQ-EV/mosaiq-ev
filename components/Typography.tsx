@@ -12,6 +12,7 @@ export const font = {
   headline1: css`
     font-weight: bold;
     font-size: 2.5rem;
+    margin-bottom: 0.5em;
     ${upFromBreakpoint("small")} {
       font-size: 3.5rem;
     }
@@ -28,6 +29,7 @@ export const font = {
   headline2: css`
     font-weight: bold;
     font-size: 2rem;
+    margin-bottom: 0.5em;
     ${upFromBreakpoint("small")} {
       font-size: 3rem;
     }
@@ -44,6 +46,7 @@ export const font = {
   headline3: css`
     font-weight: bold;
     font-size: 1.7rem;
+    margin-bottom: 0.5em;
     ${upFromBreakpoint("small")} {
       font-size: 2.5rem;
     }
@@ -60,6 +63,7 @@ export const font = {
   headline4: css`
     font-weight: bold;
     font-size: 1.5rem;
+    margin-bottom: 0.5em;
     ${upFromBreakpoint("small")} {
       font-size: 1.7rem;
     }
