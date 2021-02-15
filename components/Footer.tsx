@@ -106,8 +106,8 @@ export default function Footer() {
             BIC: <b>HASPDEHHXXX</b>
           </span>
           <span>
-            Gib bitte deine Adresse oder E-Mail Adresse im Überweisungsbetreff
-            mit an, damit wir überhaupt wissen, wer du bist.
+            Wir freuen uns über jede Spendensumme. Eine Spendenbescheinigung
+            kann auf Nachfrage ausgestellt werden.
           </span>
         </Box>
         <Box>

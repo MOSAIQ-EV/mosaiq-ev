@@ -3,7 +3,9 @@ import styled, { css } from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_TextAndImage } from "../../generated/PageContent";
 import { upFromBreakpoint } from "../../styles/mediaQueries";
+import { aspectRatio } from "../../styles/mixins";
 import ContentSection from "../ContentSection";
+import Img from "../Img";
 import TextBox from "../TextBox";
 import { ImageBox } from "./Image";
 
@@ -19,19 +21,34 @@ const Text = styled(TextBox)`
   z-index: 2;
   border-radius: 0 0 0.5rem 0.5rem;
   ${upFromBreakpoint("medium")} {
+    width: 50%;
     border-radius: 0.5rem;
   }
 `;
 
-const Image = styled(ImageBox)`
-  width: 100%;
-  border-radius: 0.5rem 0.5rem 0 0;
+// const Image = styled(Img)`
+//   width: 50%;
+//   border-radius: 0.5rem 0.5rem 0 0;
+//   overflow: hidden;
+//   ${upFromBreakpoint("medium")} {
+//     min-width: 50%;
+//     border-radius: 0.5rem;
+//     height: max-content;
+//   }
+//   img {
+//     ${aspectRatio(16 / 10)};
+//   }
+// `;
+
+const ImageContainer = styled.div`
+  width: 50%;
   ${upFromBreakpoint("medium")} {
-    min-width: 50%;
-    border-radius: 0.5rem;
+    ${aspectRatio(4 / 3)}
   }
 `;
-
+const Image = styled.img`
+  max-width: 100%;
+`;
 const StyledContentSection = styled(ContentSection)<{ reverse: boolean }>`
   ${upFromBreakpoint("medium")} {
     ${Container} {
@@ -69,7 +86,10 @@ export default function TextAndImage({
   return (
     <StyledContentSection reverse={reverse}>
       <Container>
-        <Image url={image.url} author={image.description} />
+        <ImageContainer>
+          <Image src={image.url} />
+        </ImageContainer>
+        {/* <Image url={image.url} /> */}
         <Text {...text} />
       </Container>
     </StyledContentSection>

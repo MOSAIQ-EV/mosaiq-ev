@@ -33,7 +33,7 @@ export default function TextBox({ text, link, document, className }: Props) {
   return (
     <Container className={className}>
       <RichText document={text.json} />
-      {link && <StyledLink href={`${link}`}>mehr</StyledLink>}
+      {link && <StyledLink href={`/projekte/${link.sys.id}`}>mehr</StyledLink>}
       {document && (
         <StyledLink target="__blank" href={document.url}>
           Download PDF

@@ -3,11 +3,14 @@ import styled from "styled-components";
 
 import color from "../styles/color";
 
-const Container = styled.div<{ imageUrl: string }>`
+const Container = styled.div`
   position: relative;
-  background-image: ${(p) => `url(${p.imageUrl})`};
-  background-repeat: no-repeat;
-  background-size: cover;
+`;
+
+const Image = styled.img`
+  max-width: 100%;
+  min-width: 100%;
+  object-fit: cover;
 `;
 
 const Author = styled.span`
@@ -25,7 +28,8 @@ type Props = {
 };
 export default function Img({ url, author, className }: Props) {
   return (
-    <Container className={className} imageUrl={url}>
+    <Container className={className}>
+      <Image src={url} />
       <Author>© {author}</Author>
     </Container>
   );

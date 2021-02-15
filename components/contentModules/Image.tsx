@@ -10,7 +10,8 @@ import TextBox from "../TextBox";
 
 export const ImageBox = styled(Img)`
   border-radius: 0.5rem;
-  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
   ${boxShadow};
   ${upToBreakpoint("medium")} {
     border-radius: 0.5rem 0.5rem 0 0;
@@ -58,7 +59,7 @@ export default function Image({
   return (
     <StyledContentSection>
       <Container>
-        <ImageBox url={image.url} author={image.description} />
+        <ImageBox url={image.url} />
         {description && (
           <TextBox text={description} link={link} document={null} />
         )}
