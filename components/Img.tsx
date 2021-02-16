@@ -37,7 +37,7 @@ export default function Img({ url, author, className }: Props) {
   return (
     <Container className={className}>
       <Image src={url} />
-      <Author>© {author}</Author>
+      {author && <Author>© {author}</Author>}
     </Container>
   );
 }
