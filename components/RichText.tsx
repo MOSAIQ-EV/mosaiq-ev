@@ -38,6 +38,12 @@ const Container = styled.div`
       margin-left: 3rem;
     }
   }
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 0.5em;
+  }
 `;
 
 type Props = {
@@ -45,5 +51,12 @@ type Props = {
 };
 
 export default function RichText({ document }: Props) {
-  return <Container>{documentToReactComponents(document)}</Container>;
+  return (
+    <Container>
+      {documentToReactComponents(document, {
+        renderText: (text) =>
+          text.split("\n").flatMap((text, i) => [i > 0 && <br />, text]),
+      })}
+    </Container>
+  );
 }
