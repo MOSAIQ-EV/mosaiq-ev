@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_Image } from "../../generated/PageContent";
 import { upFromBreakpoint, upToBreakpoint } from "../../styles/mediaQueries";
@@ -32,6 +32,15 @@ const Wrapper = styled.div`
       border-radius: 0.5rem;
     }
   }
+  ${(p) => {
+    if (React.Children.toArray(p.children).length > 1) {
+      return css`
+        span {
+          bottom: 2.25rem;
+        }
+      `;
+    }
+  }}
 `;
 
 export default function Image({

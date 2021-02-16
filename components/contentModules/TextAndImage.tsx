@@ -3,11 +3,10 @@ import styled, { css } from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_TextAndImage } from "../../generated/PageContent";
 import { upFromBreakpoint } from "../../styles/mediaQueries";
-import { aspectRatio } from "../../styles/mixins";
+import { boxShadow } from "../../styles/mixins";
 import ContentSection from "../ContentSection";
 import Img, { getAuthor } from "../Img";
 import TextBox from "../TextBox";
-import { ImageBox } from "./Image";
 
 const Container = styled.div`
   display: flex;
@@ -26,26 +25,12 @@ const Text = styled(TextBox)`
   }
 `;
 
-// const Image = styled(Img)`
-//   width: 50%;
-//   border-radius: 0.5rem 0.5rem 0 0;
-//   overflow: hidden;
-//   ${upFromBreakpoint("medium")} {
-//     min-width: 50%;
-//     border-radius: 0.5rem;
-//     height: max-content;
-//   }
-//   img {
-//     ${aspectRatio(16 / 10)};
-//   }
-// `;
-
 const Image = styled(Img)`
   border-radius: 0.5rem 0.5rem 0 0;
   height: max-content;
+  ${boxShadow}
   ${upFromBreakpoint("medium")} {
     width: 50%;
-    /* ${aspectRatio(4 / 3)} */
     border-radius: 0.5rem;
   }
 `;
