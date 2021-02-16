@@ -19,8 +19,11 @@ const Container = styled.div`
   ${hoverAnimation}
 `;
 
-const Image = styled(Img)`
-  ${aspectRatio(4 / 3)}
+const Image = styled.div<{ imageUrl: string }>`
+  ${aspectRatio(5 / 3)}
+  background-image: url(${(p) => p.imageUrl});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const Info = styled.div`
@@ -60,7 +63,7 @@ export default function TextAndImageCard({
         router.push(link);
       }}
     >
-      <Image url={image.url} author={image.description} />
+      <Image imageUrl={image.url} />
       <Info>
         <Headline>{page.headline}</Headline>
         <StyledLink href={link}>mehr</StyledLink>
