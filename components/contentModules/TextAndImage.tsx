@@ -5,7 +5,7 @@ import { PageContent_pageCollection_items_contentCollection_items_TextAndImage }
 import { upFromBreakpoint } from "../../styles/mediaQueries";
 import { aspectRatio } from "../../styles/mixins";
 import ContentSection from "../ContentSection";
-import Img from "../Img";
+import Img, { getAuthor } from "../Img";
 import TextBox from "../TextBox";
 import { ImageBox } from "./Image";
 
@@ -40,15 +40,16 @@ const Text = styled(TextBox)`
 //   }
 // `;
 
-const ImageContainer = styled.div`
-  width: 50%;
+const Image = styled(Img)`
+  border-radius: 0.5rem 0.5rem 0 0;
+  height: max-content;
   ${upFromBreakpoint("medium")} {
-    ${aspectRatio(4 / 3)}
+    width: 50%;
+    /* ${aspectRatio(4 / 3)} */
+    border-radius: 0.5rem;
   }
 `;
-const Image = styled.img`
-  max-width: 100%;
-`;
+
 const StyledContentSection = styled(ContentSection)<{ reverse: boolean }>`
   ${upFromBreakpoint("medium")} {
     ${Container} {
@@ -86,10 +87,7 @@ export default function TextAndImage({
   return (
     <StyledContentSection reverse={reverse}>
       <Container>
-        <ImageContainer>
-          <Image src={image.url} />
-        </ImageContainer>
-        {/* <Image url={image.url} /> */}
+        <Image url={image.url} author={getAuthor(image.description)} />
         <Text {...text} />
       </Container>
     </StyledContentSection>

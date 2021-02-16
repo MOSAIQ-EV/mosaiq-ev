@@ -22,9 +22,15 @@ const RatioContainer = styled.div`
   }
 `;
 
-const getVideoIdFromUrl = (url: string) => {
-  const matches = url.match(new RegExp("v=" + "(.*)" + "&"));
-  return matches && matches[1];
+const getVideoIdFromUrl = (url: string, type: "youtube" | "vimeo") => {
+  if (type === "youtube") {
+    const matches = url.match(new RegExp("v=" + "(.*)" + "&"));
+    return matches && matches[1];
+  }
+  if (type === "vimeo") {
+    const matches = url.match(/\d+/g);
+    return matches && matches[0];
+  }
 };
 
 type Props = {
@@ -32,14 +38,22 @@ type Props = {
 };
 
 export default function Video({ url }: Props) {
+  const isYoutube = url.includes("youtube");
+  const vimeoLink = `https://player.vimeo.com/video/${getVideoIdFromUrl(
+    url,
+    "vimeo",
+  )}?title=0&byline=0&portrait=0`;
+  console.log(vimeoLink);
+  const youtubeLink = `https://www.youtube-nocookie.com/embed/${getVideoIdFromUrl(
+    url,
+    "youtube",
+  )}?&rel=0&showinfo=0&modestbranding=1`;
   return (
     <ContentSection>
       <RatioContainer>
         <iframe
           title="Video"
-          src={`https://www.youtube-nocookie.com/embed/${getVideoIdFromUrl(
-            url,
-          )}?&rel=0&showinfo=0&modestbranding=1`}
+          src={isYoutube ? youtubeLink : vimeoLink}
           frameBorder="0"
           allowFullScreen
         />

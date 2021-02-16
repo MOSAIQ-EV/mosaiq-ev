@@ -3,7 +3,6 @@ import React, { useCallback, useRef } from "react";
 
 import { PageContent } from "../generated/PageContent";
 import Accordion from "./contentModules/Accordion";
-import Board from "./contentModules/Board";
 import Event from "./contentModules/Event";
 import Image from "./contentModules/Image";
 import LongText from "./contentModules/LongText";
@@ -95,8 +94,6 @@ export default function Page({
             );
           case "Video":
             return <Video key={c.__typename + i} {...c} />;
-          case "Board":
-            return <Board key={c.__typename + i} {...c} />;
           default:
             return null;
         }

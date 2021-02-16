@@ -20,7 +20,6 @@ export const Page_Content = gql`
             ...longText
             ...accordion
             ...video
-            ...board
           }
         }
       }
@@ -127,19 +126,5 @@ export const Page_Content = gql`
 
   fragment video on Video {
     url
-  }
-
-  fragment board on Board {
-    memberCollection(limit: 10) {
-      items {
-        image {
-          url
-          description
-        }
-        name
-        role
-        email
-      }
-    }
   }
 `;

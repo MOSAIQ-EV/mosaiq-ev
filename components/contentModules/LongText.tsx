@@ -13,6 +13,7 @@ const WavedContainer = styled.section<{ backgroundColor: string }>`
   position: relative;
   padding: 6vw 0;
   margin: 1rem 0;
+
   ${upFromBreakpoint("medium")} {
     margin: 2rem 0;
   }
@@ -47,10 +48,16 @@ const WavedContainer = styled.section<{ backgroundColor: string }>`
 `;
 
 const Content = styled.div`
-  ${maxWidth}
   ${sectionPadding}
-  color: ${color.white};
+  & > div {
+    ${maxWidth}
+    color: ${color.white};
+  }
 `;
+const WAVES = [
+  "M0 0.212321C0 0.212321 0.0324504 -0.00597684 0.2355 0.0001256C0.43589 0.00614811 0.516652 0.518113 0.65 0.367C0.954 0.0225 1 0.662265 1 0.662265V1H0V0.212321Z",
+  "M0 0C0 0 0.10445 0.414007 0.3075 0.4195C0.50789 0.424921 0.443681 0.0709014 0.6395 0.028C0.781015 -0.0030041 1 0.696 1 0.696V1H0V0Z",
+];
 
 export default function LongText({
   text,
@@ -60,14 +67,14 @@ export default function LongText({
 }) {
   return (
     <WavedContainer backgroundColor={backgroundColor}>
-      <div>
-        <Content>
+      <Content>
+        <div>
           <RichText document={text.json} />
-        </Content>
-      </div>
+        </div>
+      </Content>
       <WaveSvgClipPath
-        id="long-text-wave"
-        path="M0 1C0 1 0.019496 0.341529 0.14147 0.151566C0.263445 -0.0383974 0.349011 0.266678 0.488397 0.248852C0.655392 0.227494 0.676358 0.00256504 0.844323 4.89491e-06C1.01229 -0.00255525 0.99979 1 0.99979 1H0Z"
+        id={`long-text-wave`}
+        path={WAVES[Math.floor(Math.random() * WAVES.length)]}
       />
     </WavedContainer>
   );

@@ -44,9 +44,12 @@ const WavedContainer = styled.section<{ backgroundColor: string }>`
   }
 `;
 
+const Container = styled.div`
+  ${sectionPadding}
+`;
+
 const Content = styled.div`
   ${maxWidth}
-  ${sectionPadding}
   color: ${color.white};
   a {
     color: ${color.white};
@@ -77,7 +80,7 @@ export default function Accordion({
 
   return (
     <WavedContainer backgroundColor={backgroundColor}>
-      <div>
+      <Container>
         <Content>
           <Headline onClick={() => setIsOpen(!isOpen)} expanded={isOpen}>
             {headline}
@@ -87,7 +90,7 @@ export default function Accordion({
             <RichText document={text.json} />
           </Collapse>
         </Content>
-      </div>
+      </Container>
       <WaveSvgClipPath
         id="top-wave"
         path="M0 1C0 1 0.0150256 0.2711 0.137 0.0532632C0.258974 -0.164574 0.352613 0.5241 0.492 0.503657C0.658995 0.479166 0.604035 0.00298466 0.772 4.8848e-05C0.939965 -0.00288696 1 0.127487 1 0.127487V1H0Z"

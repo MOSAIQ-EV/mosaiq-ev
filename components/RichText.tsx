@@ -14,11 +14,16 @@ const Container = styled.div`
     margin-top: 0;
     margin-bottom: 0;
   }
-  & > p,
-  ul,
+
+  & > p + p,
+  ul + p,
   ol + p,
-  ul,
-  ol {
+  p + ul,
+  p + ol,
+  ul + ul,
+  ol + ul,
+  ul + ol,
+  ol + ol {
     margin-top: 1rem;
   }
   a {

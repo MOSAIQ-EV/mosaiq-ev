@@ -5,12 +5,11 @@ import { PageContent_pageCollection_items_contentCollection_items_Image } from "
 import { upFromBreakpoint, upToBreakpoint } from "../../styles/mediaQueries";
 import { boxShadow } from "../../styles/mixins";
 import ContentSection from "../ContentSection";
-import Img from "../Img";
-import TextBox from "../TextBox";
+import Img, { getAuthor } from "../Img";
+import TextBox, { Container } from "../TextBox";
 
 export const ImageBox = styled(Img)`
   border-radius: 0.5rem;
-  overflow: hidden;
   width: 100%;
   ${boxShadow};
   ${upToBreakpoint("medium")} {
@@ -18,35 +17,19 @@ export const ImageBox = styled(Img)`
   }
 `;
 
-const Container = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  ${upToBreakpoint("medium")} {
-    & > div {
-      border-radius: 0 0 0.5rem 0.5rem;
-    }
+  ${Container} {
+    border-radius: 0 0 0.5rem 0.5rem;
+    z-index: 1;
   }
-`;
-
-const StyledContentSection = styled(ContentSection)`
   ${upFromBreakpoint("medium")} {
-    :nth-child(odd) {
-      ${Container} {
-        margin-left: 6rem;
-        & > div {
-          margin: 0 3rem 0 -2rem;
-          transform: translateY(-2rem);
-        }
-      }
-    }
-    :nth-child(even) {
-      ${Container} {
-        margin-right: 6rem;
-        & > div {
-          margin: 0 0 0 3rem;
-          transform: translateY(-2rem);
-        }
-      }
+    padding-left: 10%;
+    padding-right: 5%;
+    ${Container} {
+      transform: translate3d(-5%, -2rem, 0);
+      border-radius: 0.5rem;
     }
   }
 `;
@@ -57,13 +40,13 @@ export default function Image({
   link,
 }: PageContent_pageCollection_items_contentCollection_items_Image) {
   return (
-    <StyledContentSection>
-      <Container>
-        <ImageBox url={image.url} />
+    <ContentSection>
+      <Wrapper>
+        <ImageBox url={image.url} author={getAuthor(image.description)} />
         {description && (
           <TextBox text={description} link={link} document={null} />
         )}
-      </Container>
-    </StyledContentSection>
+      </Wrapper>
+    </ContentSection>
   );
 }
