@@ -31,16 +31,16 @@ const Wrapper = styled.div`
       transform: translate3d(-5%, -2rem, 0);
       border-radius: 0.5rem;
     }
+    ${(p) => {
+      if (React.Children.toArray(p.children).length > 1) {
+        return css`
+          span {
+            bottom: 2.25rem;
+          }
+        `;
+      }
+    }}
   }
-  ${(p) => {
-    if (React.Children.toArray(p.children).length > 1) {
-      return css`
-        span {
-          bottom: 2.25rem;
-        }
-      `;
-    }
-  }}
 `;
 
 export default function Image({

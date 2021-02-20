@@ -44,6 +44,9 @@ const StyledContentSection = styled(ContentSection)<{ reverse: boolean }>`
       }
       ${Image} {
         transform: translate3d(1rem, 0rem, 0);
+        & > span {
+          margin-right: 2.25rem;
+        }
       }
     }
     ${(p) =>

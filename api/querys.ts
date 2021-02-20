@@ -112,6 +112,9 @@ export const Page_Content = gql`
     location
     linkToMaps
     highlight
+    flyer {
+      url
+    }
   }
 
   fragment longText on LongText {

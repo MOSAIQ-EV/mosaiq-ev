@@ -46,9 +46,10 @@ const StyledContentSection = styled(ContentSection)`
 `;
 
 const DateContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin-right: 4rem;
+`;
+
+const Info = styled.div`
   flex: 1;
 `;
 
@@ -61,19 +62,10 @@ const DayMonth = styled.div`
 `;
 
 const Time = styled.h4`
-  font-size: 4vmin;
-  font-weight: bold;
   margin-top: 1.5rem;
   ${upToBreakpoint("medium")} {
     margin-top: 1rem;
   }
-`;
-
-const Info = styled.div`
-  @media (max-width: 600px) {
-    margin-top: 1rem;
-  }
-  flex: 1;
 `;
 
 const Location = styled.a<{ disabled: boolean }>`
@@ -119,7 +111,7 @@ export default function Event({
           <Time>{time} Uhr</Time>
         </DateContainer>
         <Info>
-          <h3>{name}</h3>
+          <h4>{name}</h4>
           <RichText document={eventDescription.json} />
           <Location
             href={`http://maps.google.com/?q=${location}`}
