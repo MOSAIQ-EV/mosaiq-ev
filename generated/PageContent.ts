@@ -7,10 +7,6 @@
 // GraphQL query operation: PageContent
 // ====================================================
 
-export interface PageContent_pageCollection_items_contentCollection_items_Board {
-  __typename: "Board";
-}
-
 export interface PageContent_pageCollection_items_contentCollection_items_SectionHeadline {
   __typename: "SectionHeadline";
   headline: string | null;
@@ -133,12 +129,17 @@ export interface PageContent_pageCollection_items_contentCollection_items_Slider
   itemsCollection: PageContent_pageCollection_items_contentCollection_items_Slider_itemsCollection | null;
 }
 
+export interface PageContent_pageCollection_items_contentCollection_items_Event_eventDescription {
+  json: ContentfulJSON;
+}
+
 export interface PageContent_pageCollection_items_contentCollection_items_Event {
   __typename: "Event";
   name: string | null;
-  eventDescription: string | null;
+  eventDescription: PageContent_pageCollection_items_contentCollection_items_Event_eventDescription | null;
   date: ContentfulDateTime | null;
   location: string | null;
+  linkToMaps: boolean | null;
   highlight: boolean | null;
 }
 
@@ -166,7 +167,7 @@ export interface PageContent_pageCollection_items_contentCollection_items_Video 
   url: string | null;
 }
 
-export type PageContent_pageCollection_items_contentCollection_items = PageContent_pageCollection_items_contentCollection_items_Board | PageContent_pageCollection_items_contentCollection_items_SectionHeadline | PageContent_pageCollection_items_contentCollection_items_TextAndImage | PageContent_pageCollection_items_contentCollection_items_Text | PageContent_pageCollection_items_contentCollection_items_Image | PageContent_pageCollection_items_contentCollection_items_Slider | PageContent_pageCollection_items_contentCollection_items_Event | PageContent_pageCollection_items_contentCollection_items_LongText | PageContent_pageCollection_items_contentCollection_items_Accordion | PageContent_pageCollection_items_contentCollection_items_Video;
+export type PageContent_pageCollection_items_contentCollection_items = PageContent_pageCollection_items_contentCollection_items_SectionHeadline | PageContent_pageCollection_items_contentCollection_items_TextAndImage | PageContent_pageCollection_items_contentCollection_items_Text | PageContent_pageCollection_items_contentCollection_items_Image | PageContent_pageCollection_items_contentCollection_items_Slider | PageContent_pageCollection_items_contentCollection_items_Event | PageContent_pageCollection_items_contentCollection_items_LongText | PageContent_pageCollection_items_contentCollection_items_Accordion | PageContent_pageCollection_items_contentCollection_items_Video;
 
 export interface PageContent_pageCollection_items_contentCollection {
   items: (PageContent_pageCollection_items_contentCollection_items | null)[];

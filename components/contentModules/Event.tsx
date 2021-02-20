@@ -6,6 +6,7 @@ import color from "../../styles/color";
 import { upFromBreakpoint, upToBreakpoint } from "../../styles/mediaQueries";
 import { boxShadow } from "../../styles/mixins";
 import ContentSection from "../ContentSection";
+import RichText from "../RichText";
 
 const Container = styled.div<{ highlight?: boolean | null }>`
   ${boxShadow};
@@ -75,7 +76,7 @@ const Info = styled.div`
   flex: 1;
 `;
 
-const Location = styled.a`
+const Location = styled.a<{ disabled: boolean }>`
   display: block;
   text-decoration: none;
   color: #000;
@@ -87,6 +88,7 @@ const Location = styled.a`
     margin-right: 1rem;
     width: 1rem;
   }
+  pointer-events: ${(p) => (p.disabled ? "none" : "all")};
 `;
 
 export default function Event({
@@ -95,6 +97,7 @@ export default function Event({
   location,
   name,
   highlight,
+  linkToMaps,
 }: PageContent_pageCollection_items_contentCollection_items_Event) {
   if (!date || !eventDescription || !location || !name) return null;
   const time = new Date(date).toLocaleTimeString().slice(0, -3);
@@ -117,10 +120,11 @@ export default function Event({
         </DateContainer>
         <Info>
           <h3>{name}</h3>
-          <p>{eventDescription}</p>
+          <RichText document={eventDescription.json} />
           <Location
             href={`http://maps.google.com/?q=${location}`}
             target="_blank"
+            disabled={!linkToMaps}
           >
             <svg
               viewBox="0 0 24 32"

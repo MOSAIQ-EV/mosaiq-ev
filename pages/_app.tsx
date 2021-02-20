@@ -29,6 +29,8 @@ const GlobalStyle = createGlobalStyle`
     text-transform: uppercase;
     color: ${color.white};
     ${font.headline1}
+    hyphens: auto;
+    word-break: break-word;
   }
   h2{
     ${font.headline2}

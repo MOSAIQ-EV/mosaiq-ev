@@ -7,10 +7,15 @@
 // GraphQL fragment: event
 // ====================================================
 
+export interface event_eventDescription {
+  json: ContentfulJSON;
+}
+
 export interface event {
   name: string | null;
-  eventDescription: string | null;
+  eventDescription: event_eventDescription | null;
   date: ContentfulDateTime | null;
   location: string | null;
+  linkToMaps: boolean | null;
   highlight: boolean | null;
 }

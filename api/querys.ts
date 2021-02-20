@@ -105,9 +105,12 @@ export const Page_Content = gql`
   }
   fragment event on Event {
     name
-    eventDescription
+    eventDescription {
+      json
+    }
     date
     location
+    linkToMaps
     highlight
   }
 
