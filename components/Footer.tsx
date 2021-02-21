@@ -100,10 +100,10 @@ export default function Footer() {
         <Box>
           <h4>Fördern</h4>
           <span>
-            IBAN: <b>DE58 2005 0550 1268 1351 81</b>
+            IBAN: <b>DE05 430 609671129 767100</b>
           </span>
           <span>
-            BIC: <b>HASPDEHHXXX</b>
+            BIC: <b>GENODEM1GLS</b>
           </span>
           <span>
             Wir freuen uns über jede Spendensumme. Eine Spendenbescheinigung
