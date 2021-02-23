@@ -5,8 +5,10 @@ import { PageContent } from "../generated/PageContent";
 import Accordion from "./contentModules/Accordion";
 import Event from "./contentModules/Event";
 import Image from "./contentModules/Image";
+import ImageSlider from "./contentModules/ImageSlider";
+import InstagramSlider from "./contentModules/InstagramSlider";
 import LongText from "./contentModules/LongText";
-import SliderModule from "./contentModules/SliderModule";
+import TeaserSlider from "./contentModules/TeaserSlider";
 import Text from "./contentModules/Text";
 import TextAndImage from "./contentModules/TextAndImage";
 import Video from "./contentModules/Video";
@@ -72,8 +74,10 @@ export default function Page({
             return <Text key={c.__typename + i} {...c} />;
           case "Image":
             return <Image key={c.__typename + i} {...c} />;
-          case "Slider":
-            return <SliderModule key={c.__typename + i} {...c} />;
+          case "ImageSlider":
+            return <ImageSlider key={c.__typename + i} {...c} />;
+          case "TeaserSlider":
+            return <TeaserSlider key={c.__typename + i} {...c} />;
           case "Event":
             return <Event key={c.__typename + i} {...c} />;
           case "LongText":
@@ -94,6 +98,9 @@ export default function Page({
             );
           case "Video":
             return <Video key={c.__typename + i} {...c} />;
+          case "Instagram":
+            return <InstagramSlider key={c.__typename + i} {...c} />;
+
           default:
             return null;
         }

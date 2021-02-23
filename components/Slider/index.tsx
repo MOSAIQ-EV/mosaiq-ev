@@ -10,9 +10,11 @@ const Wrapper = styled.section`
   user-select: none;
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ hasOverflow: boolean }>`
   display: grid;
   grid-auto-flow: column;
+  justify-content: ${(p) => (p.hasOverflow ? "flex-start" : "center")};
+  max-width: 100%;
   --grid-gap: 1rem;
   grid-column-gap: var(--grid-gap);
   user-select: none;
@@ -35,6 +37,12 @@ const Container = styled.div`
   }
 `;
 
+const StyledArrow = styled(Arrow)`
+  @media (hover: none) and (pointer: coarse) {
+    display: none;
+  }
+`;
+
 type Props = {
   children: ReactNode;
 };
@@ -43,17 +51,18 @@ export default function Slider({ children }: Props) {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
+  const [hasOverflow, setHasOverflow] = useState(false);
 
   const resizeHandler = () => {
     if (sliderRef.current) {
       const { scrollLeft, scrollWidth } = sliderRef.current;
       setShowLeftArrow(scrollLeft > 0);
       setShowRightArrow(scrollWidth - scrollLeft > window.innerWidth);
+      setHasOverflow(scrollWidth > window.innerWidth);
     }
   };
 
   useEvent("resize", resizeHandler, { initCallback: true });
-
   const handleArrowClick = (direction: Direction) => {
     if (sliderRef.current) {
       const itemWidth = sliderRef.current.children[0].clientWidth;
@@ -68,15 +77,19 @@ export default function Slider({ children }: Props) {
 
   return (
     <Wrapper>
-      <Container ref={sliderRef} onScroll={resizeHandler}>
+      <Container
+        ref={sliderRef}
+        onScroll={resizeHandler}
+        hasOverflow={hasOverflow}
+      >
         {children}
       </Container>
-      <Arrow
+      <StyledArrow
         direction={"left"}
         onClick={handleArrowClick}
         visible={showLeftArrow}
       />
-      <Arrow
+      <StyledArrow
         direction={"right"}
         onClick={handleArrowClick}
         visible={showRightArrow}

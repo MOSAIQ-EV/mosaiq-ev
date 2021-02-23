@@ -32,10 +32,11 @@ type Props = {
   url: string;
   author?: string;
   className?: string;
+  onClick?: () => void;
 };
-export default function Img({ url, author, className }: Props) {
+export default function Img({ url, author, className, onClick }: Props) {
   return (
-    <Container className={className}>
+    <Container className={className} onClick={onClick}>
       <Image src={url} />
       {author && <Author>© {author}</Author>}
     </Container>

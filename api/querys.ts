@@ -15,11 +15,13 @@ export const Page_Content = gql`
             ...textAndImage
             ...text
             ...image
-            ...slider
+            ...imageSlider
+            ...teaserSlider
             ...event
             ...longText
             ...accordion
             ...video
+            ...instagram
           }
         }
       }
@@ -74,35 +76,31 @@ export const Page_Content = gql`
     }
   }
 
-  fragment slider on Slider {
-    itemsCollection(limit: 15) {
+  fragment imageSlider on ImageSlider {
+    imagesCollection(limit: 30) {
       items {
-        __typename
-        ...sliderTeaser
-        ...sliderImage
+        description
+        url
+      }
+    }
+  }
+  fragment teaserSlider on TeaserSlider {
+    itemsCollection {
+      items {
+        image {
+          url
+          description
+        }
+        page {
+          headline
+          sys {
+            id
+          }
+        }
       }
     }
   }
 
-  fragment sliderImage on SliderImage {
-    image {
-      url
-      description
-    }
-  }
-
-  fragment sliderTeaser on SliderTeaser {
-    image {
-      url
-      description
-    }
-    page {
-      headline
-      sys {
-        id
-      }
-    }
-  }
   fragment event on Event {
     name
     eventDescription {
@@ -132,5 +130,9 @@ export const Page_Content = gql`
 
   fragment video on Video {
     url
+  }
+
+  fragment instagram on Instagram {
+    name
   }
 `;

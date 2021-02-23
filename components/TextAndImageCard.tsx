@@ -2,10 +2,9 @@ import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
 
-import { PageContent_pageCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderTeaser } from "../generated/PageContent";
+import { PageContent_pageCollection_items_contentCollection_items_TeaserSlider_itemsCollection_items } from "../generated/PageContent";
 import color from "../styles/color";
 import { aspectRatio, boxShadow, hoverAnimation } from "../styles/mixins";
-import Img from "./Img";
 import Link from "./Link";
 
 const Container = styled.div`
@@ -49,7 +48,7 @@ const StyledLink = styled(Link)`
 export default function TextAndImageCard({
   image,
   page,
-}: PageContent_pageCollection_items_contentCollection_items_Slider_itemsCollection_items_SliderTeaser) {
+}: PageContent_pageCollection_items_contentCollection_items_TeaserSlider_itemsCollection_items) {
   const router = useRouter();
 
   if (!image?.url || !page?.headline) return null;

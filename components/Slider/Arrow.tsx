@@ -28,9 +28,6 @@ const Container = styled.div<{ direction: Direction; visible: boolean }>`
   ${(p) => (p.direction === "right" ? "right: 1rem;" : "left: 1rem;")};
   transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
   z-index: 1;
-  @media (hover: none) and (pointer: coarse) {
-    display: none;
-  }
 `;
 
 export type Direction = "left" | "right";
