@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_ImageSlider } from "../../generated/PageContent";
 import color from "../../styles/color";
-import { upToBreakpoint } from "../../styles/mediaQueries";
+import { upFromBreakpoint, upToBreakpoint } from "../../styles/mediaQueries";
 import { boxShadow, hoverAnimation } from "../../styles/mixins";
 import { Close } from "../Icons";
 import Img, { getAuthor } from "../Img";
@@ -16,8 +16,6 @@ const Container = styled.section`
 `;
 
 const SliderImage = styled(Img)`
-  width: 300px;
-  height: 300px;
   ${boxShadow};
   border-radius: 0.5rem;
   & > img {
@@ -25,6 +23,16 @@ const SliderImage = styled(Img)`
   }
   cursor: pointer;
   ${hoverAnimation}
+  width: 80vw;
+  height: 80vw;
+  ${upFromBreakpoint("small")} {
+    width: 350px;
+    height: 350px;
+  }
+  ${upFromBreakpoint("medium")} {
+    width: 300px;
+    height: 300px;
+  }
 `;
 
 const Fullscreen = styled.div`
@@ -99,16 +107,6 @@ export default function ImageSlider({
     <Container>
       <Slider>
         {images.map((e, i) => (
-          // <picture key={i}>
-          //   <source srcSet="/path/to/image.webp" />
-          //   <source srcSet="path/to/image.jpg" />
-          //   <img
-          //     src="/path/to/image.jpg"
-          //     alt="Source sets are awesome!"
-          //     width="800"
-          //     height="600"
-          //   />
-          // </picture>
           <SliderImage
             key={i}
             url={e.url}

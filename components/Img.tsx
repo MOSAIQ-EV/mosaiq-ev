@@ -34,10 +34,15 @@ type Props = {
   className?: string;
   onClick?: () => void;
 };
+
 export default function Img({ url, author, className, onClick }: Props) {
   return (
     <Container className={className} onClick={onClick}>
-      <Image src={url} />
+      <picture>
+        <source srcSet={`${url}?fm=webp&q=80`} type="image/webp" />
+        <source srcSet={`${url}?fm=jpg&q=80`} type="image/jpeg" />
+        <Image src={`${url}?fm=jpg&q=80`} alt="Source sets are awesome!" />
+      </picture>
       {author && <Author>© {author}</Author>}
     </Container>
   );
