@@ -39,8 +39,16 @@ export default function Img({ url, author, className, onClick }: Props) {
   return (
     <Container className={className} onClick={onClick}>
       <picture>
-        <source srcSet={`${url}?fm=webp&q=80`} type="image/webp" />
-        <source srcSet={`${url}?fm=jpg&q=80`} type="image/jpeg" />
+        <source
+          srcSet={`${url}${
+            url.includes("images.ctfassets") ? "?fm=webp&q=80" : ""
+          }`}
+        />
+        <source
+          srcSet={`${url}${
+            url.includes("images.ctfassets") ? "?fm=jpg&q=80" : ""
+          }`}
+        />
         <Image src={`${url}?fm=jpg&q=80`} alt="Source sets are awesome!" />
       </picture>
       {author && <Author>© {author}</Author>}
