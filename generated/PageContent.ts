@@ -86,6 +86,7 @@ export interface PageContent_pageCollection_items_contentCollection_items_Image 
   image: PageContent_pageCollection_items_contentCollection_items_Image_image | null;
   description: PageContent_pageCollection_items_contentCollection_items_Image_description | null;
   link: PageContent_pageCollection_items_contentCollection_items_Image_link | null;
+  small: boolean | null;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_ImageSlider_imagesCollection_items {

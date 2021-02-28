@@ -11,20 +11,29 @@ import TextBox, { Container } from "../TextBox";
 export const ImageBox = styled(Img)`
   border-radius: 0.5rem;
   width: 100%;
-  ${boxShadow};
   ${upToBreakpoint("medium")} {
     border-radius: 0.5rem 0.5rem 0 0;
   }
+  ${upFromBreakpoint("medium")} {
+    ${boxShadow};
+  }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ small?: boolean }>`
   display: flex;
   flex-direction: column;
   ${Container} {
     border-radius: 0 0 0.5rem 0.5rem;
     z-index: 1;
   }
+  ${upToBreakpoint("medium")} {
+    ${boxShadow};
+    ${Container} {
+      box-shadow: unset;
+    }
+  }
   ${upFromBreakpoint("medium")} {
+    ${(p) => p.small && "width: 70%;"};
     padding-left: 10%;
     padding-right: 5%;
     ${Container} {
@@ -47,10 +56,11 @@ export default function Image({
   image,
   description,
   link,
+  small,
 }: PageContent_pageCollection_items_contentCollection_items_Image) {
   return (
     <ContentSection>
-      <Wrapper>
+      <Wrapper small={small}>
         <ImageBox url={image.url} author={getAuthor(image.description)} />
         {description && (
           <TextBox text={description} link={link} document={null} />

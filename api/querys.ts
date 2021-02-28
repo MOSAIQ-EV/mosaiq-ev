@@ -74,6 +74,7 @@ export const Page_Content = gql`
         id
       }
     }
+    small
   }
 
   fragment imageSlider on ImageSlider {
