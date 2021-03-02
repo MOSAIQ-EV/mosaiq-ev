@@ -57,13 +57,14 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const FullScreenImage = styled.img`
+const FullScreenImage = styled(Img)`
   max-height: calc(100vh - 4rem);
-  object-fit: cover;
   border-radius: 0.5rem;
-  object-fit: contain;
   ${upToBreakpoint("medium")} {
     width: calc(100vw - 1rem);
+  }
+  & > img {
+    object-fit: contain;
   }
 `;
 
@@ -126,7 +127,7 @@ export default function ImageSlider({
               }
             }}
           >
-            <FullScreenImage src={images[fullscreenImage].url} />
+            <FullScreenImage url={images[fullscreenImage].url} />
             <StyledArrow
               direction="left"
               onClick={prevImage}

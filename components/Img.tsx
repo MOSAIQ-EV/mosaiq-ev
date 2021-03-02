@@ -41,12 +41,12 @@ export default function Img({ url, author, className, onClick }: Props) {
       <picture>
         <source
           srcSet={`${url}${
-            url.includes("images.ctfassets") ? "?fm=webp&q=80" : ""
+            url.includes("images.ctfassets") ? "?fm=webp&q=5" : ""
           }`}
         />
         <source
           srcSet={`${url}${
-            url.includes("images.ctfassets") ? "?fm=jpg&q=80" : ""
+            url.includes("images.ctfassets") ? "?fm=jpg&q=5" : ""
           }`}
         />
         <Image src={`${url}?fm=jpg&q=80`} alt="Source sets are awesome!" />

@@ -27,7 +27,10 @@ const Container = styled.div`
 
 const Image = styled.div<{ imageUrl: string }>`
   ${aspectRatio(5 / 3)}
-  background-image: url(${(p) => p.imageUrl});
+  background-image: url(${(p) =>
+    `${p.imageUrl}${
+      p.imageUrl.includes("images.ctfassets") ? "?fm=jpg&q=5" : ""
+    }`});
   background-repeat: no-repeat;
   background-size: cover;
 `;
