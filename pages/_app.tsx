@@ -61,6 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
           rel="stylesheet"
         />
+        <meta name="format-detection" content="telephone=no" />
       </Head>
       <Skeleton>
         <Component {...pageProps} />

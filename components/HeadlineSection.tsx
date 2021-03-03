@@ -8,10 +8,11 @@ import WaveSvgClipPath from "./WaveSvgClipPath";
 const Container = styled.section<{ backgroundColor: string }>`
   position: relative;
   ${sectionPadding};
+  margin-top: 10vw;
   ::before {
     content: "";
     position: absolute;
-    top: -100%;
+    top: -12vw;
     left: 0;
     right: 0;
     height: 300%;
