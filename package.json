@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings=0",
+    "lint-fix": "npm run lint --fix",
     "apollo:generate": "apollo codegen:generate --endpoint=https://graphql.contentful.com/content/v1/spaces/ruf9jx5ldq5a --header='Authorization: Bearer fkqFa6jREC1LQrj0gkyxT98aA7w7RumS8CTzHkJ-POc' --includes='api/**/*.ts{,x}' --target=typescript --tagName gql --outputFlat generated --no-addTypename --passthroughCustomScalars --customScalarsPrefix=Contentful && rm -rf generated/globalTypes.ts"
   },
   "dependencies": {

@@ -3,7 +3,6 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_ImageSlider } from "../../generated/PageContent";
 import color from "../../styles/color";
-import { upToBreakpoint } from "../../styles/mediaQueries";
 import { boxShadow, hoverAnimation } from "../../styles/mixins";
 import { Close } from "../Icons";
 import Img, { getAuthor } from "../Img";
@@ -47,23 +46,26 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const FullScreenImage = styled(Img)`
-  min-height: calc(100vh - 4rem);
-  max-height: calc(100vh - 4rem);
   border-radius: 0.5rem;
-  ${upToBreakpoint("medium")} {
-    width: calc(100vw - 1rem);
-  }
-  & > img {
-    max-height: 100%;
+  position: relative;
+  width: auto;
+  img {
+    position: relative;
+    object-fit: contain;
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100vh - 4rem);
+    width: auto;
+    height: auto;
   }
 `;
 
 const CloseIcon = styled(Close)`
   position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 2rem;
-  height: 2rem;
+
+  top: 1rem;
+  right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   color: ${color.white};
   cursor: pointer;
   transition: transform 200ms ease-in-out;
@@ -118,7 +120,11 @@ export default function ImageSlider({
               }
             }}
           >
-            <FullScreenImage url={images[fullscreenImage].url} />
+            <FullScreenImage
+              url={images[fullscreenImage].url}
+              author={getAuthor(images[fullscreenImage].description)}
+            />
+
             <StyledArrow
               direction="left"
               onClick={prevImage}

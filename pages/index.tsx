@@ -1,4 +1,3 @@
-import { gql } from "graphql-request";
 import { GetServerSideProps } from "next";
 import React from "react";
 

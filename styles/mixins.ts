@@ -20,7 +20,7 @@ export const sectionPadding = css`
 
 export const aspectRatio = (
   ratio: number,
-  position: string | false = "relative"
+  position: string | false = "relative",
 ) => css`
   ${position && `position: ${position}`};
   ::after {
@@ -31,8 +31,10 @@ export const aspectRatio = (
 `;
 
 export const hoverAnimation = css`
-  transition: transform 200ms ease-in-out;
-  :hover {
-    transform: translateY(-0.5rem);
+  @media (hover: hover) and (pointer: fine) {
+    transition: transform 200ms ease-in-out;
+    :hover {
+      transform: translateY(-0.5rem);
+    }
   }
 `;

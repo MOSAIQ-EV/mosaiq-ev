@@ -55,7 +55,9 @@ export default function RichText({ document }: Props) {
     <Container>
       {documentToReactComponents(document, {
         renderText: (text) =>
-          text.split("\n").flatMap((text, i) => [i > 0 && <br />, text]),
+          text
+            .split("\n")
+            .flatMap((text, i) => [i > 0 && <br key={i} />, text]),
       })}
     </Container>
   );

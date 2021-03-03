@@ -43,7 +43,6 @@ export default function Video({ url }: Props) {
     url,
     "vimeo",
   )}?title=0&byline=0&portrait=0`;
-  console.log(vimeoLink);
   const youtubeLink = `https://www.youtube-nocookie.com/embed/${getVideoIdFromUrl(
     url,
     "youtube",

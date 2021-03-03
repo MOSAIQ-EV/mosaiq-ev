@@ -20,10 +20,11 @@ const Container = styled.div`
 
 const Image = styled.div<{ imageUrl: string }>`
   ${aspectRatio(5 / 3)}
-  background-image: url(${(p) =>
-    `${p.imageUrl}${
-      p.imageUrl.includes("images.ctfassets") ? "?fm=jpg&q=5" : ""
-    }`});
+  background-image: ${(p) =>
+    `url(${
+      p.imageUrl +
+      (p.imageUrl.includes("images.ctfassets") ? "?fm=jpg&q=20" : "")
+    })`};
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -31,16 +32,7 @@ const Image = styled.div<{ imageUrl: string }>`
 const Info = styled.div`
   background: ${color.white};
   padding: 1rem;
-`;
-
-const Headline = styled.h4`
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  hyphens: auto;
-  width: 300px;
+  height: 100%;
 `;
 
 const StyledLink = styled(Link)`
@@ -67,7 +59,7 @@ export default function TextAndImageCard({
     >
       <Image imageUrl={image.url} />
       <Info>
-        <Headline>{page.headline}</Headline>
+        <h4>{page.headline}</h4>
         <StyledLink href={link}>mehr</StyledLink>
       </Info>
     </Container>

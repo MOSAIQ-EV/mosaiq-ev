@@ -1,5 +1,4 @@
 import type { AppProps } from "next/app";
-import { Html } from "next/document";
 import Head from "next/head";
 import React from "react";
 import { createGlobalStyle } from "styled-components";
@@ -48,9 +47,6 @@ const GlobalStyle = createGlobalStyle`
   }
   a {    
     transition: transform 200ms ease-in-out;
-    :hover {
-      transform: scale(1.02);
-    }
   }
 
 `;

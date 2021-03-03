@@ -60,15 +60,15 @@ export default function Img({
       <picture>
         <source
           srcSet={`${url}${
-            url.includes("images.ctfassets") ? "?fm=webp&q=5" : ""
+            url.includes("images.ctfassets") ? "?fm=webp&q=10" : ""
           }`}
         />
         <source
           srcSet={`${url}${
-            url.includes("images.ctfassets") ? "?fm=jpg&q=5" : ""
+            url.includes("images.ctfassets") ? "?fm=jpg&q=10" : ""
           }`}
         />
-        <Image src={`${url}?fm=jpg&q=80`} alt="Source sets are awesome!" />
+        <Image src={`${url}?fm=jpg&q=10`} alt="Source sets are awesome!" />
       </picture>
       {author && <Author>© {author}</Author>}
     </Container>
