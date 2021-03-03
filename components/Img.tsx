@@ -2,17 +2,25 @@ import React from "react";
 import styled from "styled-components";
 
 import color from "../styles/color";
+import { aspectRatio } from "../styles/mixins";
 
-const Container = styled.div`
+const Container = styled.div<{ aspectRatio?: number }>`
   position: relative;
   overflow: hidden;
+  width: 100%;
+  ${(p) => p.aspectRatio && aspectRatio(p.aspectRatio)}
 `;
 
 const Image = styled.img`
   display: block;
-  max-width: 100%;
-  min-width: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 `;
 
 const Author = styled.span`
@@ -33,11 +41,22 @@ type Props = {
   author?: string;
   className?: string;
   onClick?: () => void;
+  aspectRatio?: number;
 };
 
-export default function Img({ url, author, className, onClick }: Props) {
+export default function Img({
+  url,
+  author,
+  className,
+  onClick,
+  aspectRatio,
+}: Props) {
   return (
-    <Container className={className} onClick={onClick}>
+    <Container
+      className={className}
+      onClick={onClick}
+      aspectRatio={aspectRatio}
+    >
       <picture>
         <source
           srcSet={`${url}${

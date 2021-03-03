@@ -100,7 +100,7 @@ export default function Footer() {
         <Box>
           <h4>Fördern</h4>
           <span>
-            IBAN: <b>DE05 430 609671129 767100</b>
+            IBAN: <b>DE05 4306 0967 1129 7671 00</b>
           </span>
           <span>
             BIC: <b>GENODEM1GLS</b>

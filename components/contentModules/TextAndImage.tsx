@@ -75,7 +75,11 @@ export default function TextAndImage({
   return (
     <StyledContentSection reverse={reverse}>
       <Container>
-        <Image url={image.url} author={getAuthor(image.description)} />
+        <Image
+          url={image.url}
+          author={getAuthor(image.description)}
+          aspectRatio={4 / 3}
+        />
         <Text {...text} />
       </Container>
     </StyledContentSection>

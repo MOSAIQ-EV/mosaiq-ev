@@ -61,7 +61,11 @@ export default function Image({
   return (
     <ContentSection>
       <Wrapper small={small}>
-        <ImageBox url={image.url} author={getAuthor(image.description)} />
+        <ImageBox
+          url={image.url}
+          author={getAuthor(image.description)}
+          aspectRatio={16 / 10}
+        />
         {description && (
           <TextBox text={description} link={link} document={null} />
         )}

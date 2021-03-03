@@ -28,10 +28,10 @@ const Container = styled.div<{ hasOverflow: boolean }>`
     min-width: calc(var(--spacer) - var(--grid-gap) + 1px);
   }
   overflow: scroll;
-  /* scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
   & > * {
     scroll-snap-align: center;
-  } */
+  }
   ::-webkit-scrollbar {
     display: none;
   }
@@ -63,7 +63,6 @@ export default function Slider({ children }: Props) {
   };
 
   useEvent("resize", resizeHandler, { initCallback: true });
-
   const handleArrowClick = (direction: Direction) => {
     if (sliderRef.current) {
       const itemWidth = sliderRef.current.children[0].clientWidth;

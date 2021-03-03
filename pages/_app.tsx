@@ -15,11 +15,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Varela Round', sans-serif;
     background: #c4dfdf;
   }
   html, body {
     height: 100%;
+  
   }
   body > div {
     display: flex;
@@ -51,6 +52,7 @@ const GlobalStyle = createGlobalStyle`
       transform: scale(1.02);
     }
   }
+
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -58,7 +60,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>MOSAIQ e.V.</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Skeleton>
         <Component {...pageProps} />

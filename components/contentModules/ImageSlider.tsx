@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_ImageSlider } from "../../generated/PageContent";
 import color from "../../styles/color";
-import { upFromBreakpoint, upToBreakpoint } from "../../styles/mediaQueries";
+import { upToBreakpoint } from "../../styles/mediaQueries";
 import { boxShadow, hoverAnimation } from "../../styles/mixins";
 import { Close } from "../Icons";
 import Img, { getAuthor } from "../Img";
@@ -16,23 +16,12 @@ const Container = styled.section`
 `;
 
 const SliderImage = styled(Img)`
+  width: 300px;
+  height: 300px;
   ${boxShadow};
   border-radius: 0.5rem;
-  & > img {
-    height: 100%;
-  }
   cursor: pointer;
   ${hoverAnimation}
-  width: 80vw;
-  height: 80vw;
-  ${upFromBreakpoint("small")} {
-    width: 350px;
-    height: 350px;
-  }
-  ${upFromBreakpoint("medium")} {
-    width: 300px;
-    height: 300px;
-  }
 `;
 
 const Fullscreen = styled.div`
@@ -58,13 +47,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const FullScreenImage = styled(Img)`
+  min-height: calc(100vh - 4rem);
   max-height: calc(100vh - 4rem);
   border-radius: 0.5rem;
   ${upToBreakpoint("medium")} {
     width: calc(100vw - 1rem);
   }
   & > img {
-    object-fit: contain;
+    max-height: 100%;
   }
 `;
 
@@ -110,6 +100,7 @@ export default function ImageSlider({
         {images.map((e, i) => (
           <SliderImage
             key={i}
+            aspectRatio={1 / 1}
             url={e.url}
             author={getAuthor(e.description)}
             onClick={() => setFullscreenImage(i)}

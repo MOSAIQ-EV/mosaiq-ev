@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_TeaserSlider_itemsCollection_items } from "../generated/PageContent";
 import color from "../styles/color";
-import { upFromBreakpoint } from "../styles/mediaQueries";
 import { aspectRatio, boxShadow, hoverAnimation } from "../styles/mixins";
 import Link from "./Link";
 
@@ -14,13 +13,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 80vw;
-  ${upFromBreakpoint("small")} {
-    width: 350px;
-  }
-  ${upFromBreakpoint("medium")} {
-    width: 300px;
-  }
+  width: 300px;
   cursor: pointer;
   ${hoverAnimation}
 `;
