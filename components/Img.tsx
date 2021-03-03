@@ -9,6 +9,7 @@ const Container = styled.div<{ aspectRatio?: number }>`
   overflow: hidden;
   width: 100%;
   ${(p) => p.aspectRatio && aspectRatio(p.aspectRatio)}
+  background: ${color.yellowSecondary};
 `;
 
 const Image = styled.img`

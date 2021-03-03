@@ -1,5 +1,5 @@
 export const secondaryColor = {
-  yellowSecondary: "#FED747",
+  yellowSecondary: "#ffe489",
   redSecondary: "#EE9190",
   greenSecondary: "#6DA59E",
   purpleSecondary: "#858CC6",

@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css, keyframes } from "styled-components";
 
 import { upFromBreakpoint } from "./mediaQueries";
 
@@ -37,4 +37,17 @@ export const hoverAnimation = css`
       transform: translateY(-0.5rem);
     }
   }
+`;
+const fadeInAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+export const fadeIn = (delay = 0) => css`
+  opacity: 0;
+  animation: ${fadeInAnimation} 300ms ease-in ${delay}ms forwards;
 `;
