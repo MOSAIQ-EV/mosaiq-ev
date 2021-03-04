@@ -6,7 +6,7 @@ import { PageContent_pageCollection_items_contentCollection_items_TextAndImage }
 import { upFromBreakpoint } from "../../styles/mediaQueries";
 import { boxShadow, hoverAnimation } from "../../styles/mixins";
 import ContentSection from "../ContentSection";
-import Img, { getAuthor } from "../Img";
+import Img from "../Img";
 import TextBox from "../TextBox";
 
 const Text = styled(TextBox)`
@@ -91,8 +91,7 @@ export default function TextAndImage({
     <ContentSection>
       <Container reverse={reverse}>
         <Image
-          url={image.url}
-          author={getAuthor(image.description)}
+          {...image}
           aspectRatio={4 / 3}
           onClick={text.link ? handleClick : null}
         />

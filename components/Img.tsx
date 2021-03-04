@@ -2,6 +2,7 @@ import Image, { ImageProps } from "next/image";
 import React from "react";
 import styled from "styled-components";
 
+import { image_image } from "../generated/image";
 import color from "../styles/color";
 import { aspectRatio } from "../styles/mixins";
 
@@ -26,33 +27,36 @@ const Author = styled.span`
   font-size: 0.75rem;
 `;
 
-export const getAuthor = (data: string | null) => {
-  return data?.split("©")[1];
+const getMeta = (data: string | null) => {
+  const [description, author] = data?.split("©");
+  return {
+    description,
+    author,
+  };
 };
 
-type Props = {
-  url: string;
-  author?: string;
+type Props = image_image & {
   className?: string;
   onClick?: () => void;
   aspectRatio?: number;
 };
 
 export default function Img({
-  url,
-  author,
   className,
   onClick,
   aspectRatio,
+  url,
+  description,
 }: Props) {
+  const meta = getMeta(description);
   return (
     <Container
       className={className}
       onClick={onClick}
       aspectRatio={aspectRatio}
     >
-      <StyledImage src={url} layout="fill" />
-      {author && <Author>© {author}</Author>}
+      <StyledImage src={url} layout="fill" alt={meta.description} />
+      {meta.author && <Author>© {meta.author}</Author>}
     </Container>
   );
 }

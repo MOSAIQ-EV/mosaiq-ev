@@ -11,10 +11,6 @@ export interface event_eventDescription {
   json: ContentfulJSON;
 }
 
-export interface event_flyer {
-  url: string | null;
-}
-
 export interface event {
   name: string | null;
   eventDescription: event_eventDescription | null;
@@ -22,5 +18,4 @@ export interface event {
   location: string | null;
   linkToMaps: boolean | null;
   highlight: boolean | null;
-  flyer: event_flyer | null;
 }

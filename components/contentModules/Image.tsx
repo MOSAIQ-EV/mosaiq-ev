@@ -5,7 +5,7 @@ import { PageContent_pageCollection_items_contentCollection_items_Image } from "
 import { upFromBreakpoint, upToBreakpoint } from "../../styles/mediaQueries";
 import { boxShadow } from "../../styles/mixins";
 import ContentSection from "../ContentSection";
-import Img, { getAuthor } from "../Img";
+import Img from "../Img";
 import TextBox, { Container } from "../TextBox";
 
 export const ImageBox = styled(Img)`
@@ -61,11 +61,7 @@ export default function Image({
   return (
     <ContentSection>
       <Wrapper small={small}>
-        <ImageBox
-          url={image.url}
-          author={getAuthor(image.description)}
-          aspectRatio={16 / 10}
-        />
+        <ImageBox {...image} aspectRatio={16 / 10} />
         {description && (
           <TextBox text={description} link={link} document={null} />
         )}

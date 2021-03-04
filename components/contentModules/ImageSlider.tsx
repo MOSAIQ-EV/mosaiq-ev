@@ -5,7 +5,7 @@ import { PageContent_pageCollection_items_contentCollection_items_ImageSlider } 
 import color from "../../styles/color";
 import { boxShadow, hoverAnimation } from "../../styles/mixins";
 import { Close } from "../Icons";
-import Img, { getAuthor } from "../Img";
+import Img from "../Img";
 import Slider from "../Slider";
 import Arrow from "../Slider/Arrow";
 
@@ -101,10 +101,9 @@ export default function ImageSlider({
       <Slider>
         {images.map((e, i) => (
           <SliderImage
+            {...e}
             key={i}
             aspectRatio={1 / 1}
-            url={e.url}
-            author={getAuthor(e.description)}
             onClick={() => setFullscreenImage(i)}
           />
         ))}
@@ -120,10 +119,7 @@ export default function ImageSlider({
               }
             }}
           >
-            <FullScreenImage
-              url={images[fullscreenImage].url}
-              author={getAuthor(images[fullscreenImage].description)}
-            />
+            <FullScreenImage {...images[fullscreenImage]} />
 
             <StyledArrow
               direction="left"

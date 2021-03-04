@@ -135,10 +135,6 @@ export interface PageContent_pageCollection_items_contentCollection_items_Event_
   json: ContentfulJSON;
 }
 
-export interface PageContent_pageCollection_items_contentCollection_items_Event_flyer {
-  url: string | null;
-}
-
 export interface PageContent_pageCollection_items_contentCollection_items_Event {
   __typename: "Event";
   name: string | null;
@@ -147,7 +143,6 @@ export interface PageContent_pageCollection_items_contentCollection_items_Event 
   location: string | null;
   linkToMaps: boolean | null;
   highlight: boolean | null;
-  flyer: PageContent_pageCollection_items_contentCollection_items_Event_flyer | null;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_LongText_text {

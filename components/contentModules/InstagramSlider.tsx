@@ -20,7 +20,10 @@ export default function InstagramSlider() {
               (i) =>
                 i.media_type === "IMAGE" || i.media_type === "CAROUSEL_ALBUM",
             )
-            .map((img) => ({ url: img.media_url, description: "" })),
+            .map((img) => ({
+              url: img.media_url,
+              description: "Bild vom MOSAIQ Instagram Account",
+            })),
         ),
       );
   }, []);
