@@ -22,7 +22,7 @@ export default function Page({
   noPageHeadlineOverlay,
 }: PageContent & {
   colors: string[];
-  title?: string;
+  title: string;
   noPageHeadlineOverlay?: boolean;
 }) {
   const { headline: pageHeadline, meta } = pageCollection?.items[0];
@@ -33,15 +33,14 @@ export default function Page({
     nextBackgroundColor.current += 1;
     return colors[nextBackgroundColor.current % colors.length];
   }, [colors]);
-
   return (
     <>
-      {title && (
+      {
         <Head>
           <title>MOSAIQ e.V. - {title}</title>
           <meta name="Description" content={meta} />
         </Head>
-      )}
+      }
       {pageHeadline && (
         <PageHeadline
           noOverlav={noPageHeadlineOverlay}

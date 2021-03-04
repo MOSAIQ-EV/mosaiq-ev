@@ -53,7 +53,7 @@ export default function Img({
       onClick={onClick}
       aspectRatio={aspectRatio}
     >
-      <StyledImage src={url} layout="fill" alt={meta.description} />
+      <StyledImage src={url} layout="fill" alt={meta.description} priority />
       {meta.author && <Author>© {meta.author}</Author>}
     </Container>
   );

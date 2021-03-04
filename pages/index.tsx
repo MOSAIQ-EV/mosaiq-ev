@@ -27,6 +27,7 @@ export default function StartPage(props: PageContent) {
   return (
     <Page
       {...props}
+      title="Startseite"
       colors={[
         mainColor.purple,
         mainColor.red,
