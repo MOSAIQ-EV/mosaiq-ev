@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 
@@ -12,7 +13,7 @@ const Container = styled.div<{ aspectRatio?: number }>`
   background: ${color.yellowSecondary};
 `;
 
-const Image = styled.img`
+const StyledImage = styled(Image)`
   display: block;
   object-fit: cover;
   position: absolute;
@@ -58,7 +59,7 @@ export default function Img({
       onClick={onClick}
       aspectRatio={aspectRatio}
     >
-      <picture>
+      {/* <picture>
         <source
           srcSet={`${url}${
             url.includes("images.ctfassets") ? "?fm=webp&q=10" : ""
@@ -70,7 +71,8 @@ export default function Img({
           }`}
         />
         <Image src={`${url}?fm=jpg&q=10`} alt="Source sets are awesome!" />
-      </picture>
+      </picture> */}
+      <StyledImage src={url} layout={"fill"} />
       {author && <Author>© {author}</Author>}
     </Container>
   );
