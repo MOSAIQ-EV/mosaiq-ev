@@ -10,30 +10,45 @@ const Wrapper = styled.section`
   user-select: none;
 `;
 
-const Container = styled.div<{ hasOverflow: boolean }>`
-  display: grid;
-  grid-auto-flow: column;
+export const Scroll = styled.div`
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const Strip = styled.nav<{ hasOverflow: boolean }>`
+  position: relative;
+  height: 100%;
+  display: flex;
   justify-content: ${(p) => (p.hasOverflow ? "flex-start" : "center")};
-  max-width: 100%;
-  --grid-gap: 1rem;
-  grid-column-gap: var(--grid-gap);
-  user-select: none;
   --spacer: 1rem;
   ${upFromBreakpoint("medium")} {
     --spacer: 3rem;
   }
-  padding: var(--grid-gap) 0 var(--grid-gap) var(--spacer);
+  ::before {
+    content: "";
+    border-left: var(--spacer) solid transparent;
+  }
   ::after {
     content: "";
-    min-width: calc(var(--spacer) - var(--grid-gap) + 1px);
+    border-right: var(--spacer) solid transparent;
   }
-  overflow: scroll;
-  scroll-snap-type: x mandatory;
+`;
+
+const Items = styled.div`
+  height: 100%;
+  display: flex;
   & > * {
-    scroll-snap-align: center;
+    flex: 0 0 auto;
   }
-  ::-webkit-scrollbar {
-    display: none;
+  & > * + * {
+    margin-left: 1rem;
   }
 `;
 
@@ -77,13 +92,11 @@ export default function Slider({ children }: Props) {
 
   return (
     <Wrapper>
-      <Container
-        ref={sliderRef}
-        onScroll={resizeHandler}
-        hasOverflow={hasOverflow}
-      >
-        {children}
-      </Container>
+      <Scroll ref={sliderRef} onScroll={resizeHandler}>
+        <Strip hasOverflow={hasOverflow}>
+          <Items>{children}</Items>
+        </Strip>
+      </Scroll>
       <StyledArrow
         direction={"left"}
         onClick={handleArrowClick}

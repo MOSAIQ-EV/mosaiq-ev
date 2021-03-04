@@ -8,7 +8,7 @@ export const maxWidth = css`
 `;
 
 export const boxShadow = css`
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
 `;
 
 export const sectionPadding = css`
