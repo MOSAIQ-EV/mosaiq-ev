@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import React from "react";
 import styled from "styled-components";
 
@@ -13,16 +13,8 @@ const Container = styled.div<{ aspectRatio?: number }>`
   background: ${color.yellowSecondary};
 `;
 
-const StyledImage = styled(Image)`
-  display: block;
+const StyledImage = styled(Image)<ImageProps>`
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
 `;
 
 const Author = styled.span`
@@ -59,20 +51,7 @@ export default function Img({
       onClick={onClick}
       aspectRatio={aspectRatio}
     >
-      {/* <picture>
-        <source
-          srcSet={`${url}${
-            url.includes("images.ctfassets") ? "?fm=webp&q=10" : ""
-          }`}
-        />
-        <source
-          srcSet={`${url}${
-            url.includes("images.ctfassets") ? "?fm=jpg&q=10" : ""
-          }`}
-        />
-        <Image src={`${url}?fm=jpg&q=10`} alt="Source sets are awesome!" />
-      </picture> */}
-      <StyledImage src={url} layout={"fill"} />
+      <StyledImage src={url} layout="fill" />
       {author && <Author>© {author}</Author>}
     </Container>
   );
