@@ -113,10 +113,18 @@ export default function Footer() {
         <Box>
           <h3>Social Media</h3>
           <IconContainer>
-            <a href="https://www.instagram.com/mosaiq_hamburg" target="__blank">
+            <a
+              href="https://www.instagram.com/mosaiq_hamburg"
+              target="__blank"
+              aria-label="Instagran"
+            >
               <Instagram />
             </a>
-            <a href="https://www.facebook.com/MOSAIQhamburg" target="__blank">
+            <a
+              href="https://www.facebook.com/MOSAIQhamburg"
+              target="__blank"
+              aria-label="Facebook"
+            >
               <Facebook />
             </a>
           </IconContainer>

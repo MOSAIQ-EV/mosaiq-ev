@@ -176,7 +176,7 @@ export default function Header() {
 
   return (
     <Container visible={visible}>
-      <a href="/">
+      <a href="/" aria-label="Zur Startseite">
         <StyledLogo />
       </a>
       <Menu
