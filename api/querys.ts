@@ -8,6 +8,7 @@ export const Page_Content = gql`
     ) {
       items {
         headline
+        meta
         contentCollection(limit: 20) {
           items {
             __typename

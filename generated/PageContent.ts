@@ -182,6 +182,7 @@ export interface PageContent_pageCollection_items_contentCollection {
 
 export interface PageContent_pageCollection_items {
   headline: string | null;
+  meta: string | null;
   contentCollection: PageContent_pageCollection_items_contentCollection | null;
 }
 

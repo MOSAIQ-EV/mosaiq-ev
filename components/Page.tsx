@@ -25,18 +25,21 @@ export default function Page({
   title?: string;
   noPageHeadlineOverlay?: boolean;
 }) {
-  const pageHeadline = pageCollection?.items[0]?.headline;
+  const { headline: pageHeadline, meta } = pageCollection?.items[0];
   const nextBackgroundColor = useRef(0);
   const textImageModuleCount = useRef(0);
+
   const getBackgroundColor = useCallback(() => {
     nextBackgroundColor.current += 1;
     return colors[nextBackgroundColor.current % colors.length];
   }, [colors]);
+
   return (
     <>
       {title && (
         <Head>
           <title>MOSAIQ e.V. - {title}</title>
+          <meta name="Description" content={meta} />
         </Head>
       )}
       {pageHeadline && (
