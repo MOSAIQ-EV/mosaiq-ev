@@ -7,9 +7,7 @@ import color from "../styles/color";
 import { aspectRatio } from "../styles/mixins";
 
 const Container = styled.div<{ aspectRatio?: number }>`
-  position: relative;
   overflow: hidden;
-  width: 100%;
   ${(p) => p.aspectRatio && aspectRatio(p.aspectRatio)}
   background: ${color.yellowSecondary};
 `;

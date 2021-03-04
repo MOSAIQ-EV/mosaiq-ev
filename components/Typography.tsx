@@ -45,23 +45,6 @@ export const font = {
   `,
   headline3: css`
     font-weight: bold;
-    font-size: 1.7rem;
-    margin-bottom: 0.5em;
-    ${upFromBreakpoint("small")} {
-      font-size: 2.5rem;
-    }
-    ${upFromBreakpoint("medium")} {
-      font-size: 3rem;
-    }
-    ${upFromBreakpoint("large")} {
-      font-size: 3.5rem;
-    }
-    ${upFromBreakpoint("xlarge")} {
-      font-size: 4rem;
-    }
-  `,
-  headline4: css`
-    font-weight: bold;
     font-size: 1.5rem;
     margin-bottom: 0.5em;
     ${upFromBreakpoint("small")} {

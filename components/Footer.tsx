@@ -87,18 +87,18 @@ export default function Footer() {
     <>
       <Container>
         <Box>
-          <h4>Mitmachen</h4>
+          <h3>Mitmachen</h3>
           <NavItem href="/veranstaltungen">Veranstaltungen</NavItem>
           <NavItem href="/kontakt">Kontakt</NavItem>
         </Box>
         <Box>
-          <h4>MOSAIQ buchen</h4>
+          <h3>MOSAIQ buchen</h3>
           <NavItem href="/projekte">Kooperationen</NavItem>
           <NavItem href="/kontakt">Workshop</NavItem>
           <NavItem href="/kontakt">Seminaranfragen</NavItem>
         </Box>
         <Box>
-          <h4>Fördern</h4>
+          <h3>Fördern</h3>
           <span>
             IBAN: <b>DE05 4306 0967 1129 7671 00</b>
           </span>
@@ -111,7 +111,7 @@ export default function Footer() {
           </span>
         </Box>
         <Box>
-          <h4>Social Media</h4>
+          <h3>Social Media</h3>
           <IconContainer>
             <a href="https://www.instagram.com/mosaiq_hamburg" target="__blank">
               <Instagram />

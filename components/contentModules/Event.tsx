@@ -61,7 +61,7 @@ const DayMonth = styled.div`
   }
 `;
 
-const Time = styled.h4`
+const Time = styled.h3`
   margin-top: 1.5rem;
   ${upToBreakpoint("medium")} {
     margin-top: 1rem;
@@ -111,7 +111,7 @@ export default function Event({
           <Time>{time} Uhr</Time>
         </DateContainer>
         <Info>
-          <h4>{name}</h4>
+          <h3>{name}</h3>
           <RichText document={eventDescription.json} />
           <Location
             href={`http://maps.google.com/?q=${location}`}

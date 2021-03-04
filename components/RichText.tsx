@@ -40,8 +40,7 @@ const Container = styled.div`
   }
   h1,
   h2,
-  h3,
-  h4 {
+  h3 {
     margin-top: 0.5em;
   }
 `;

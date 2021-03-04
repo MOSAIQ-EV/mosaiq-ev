@@ -59,7 +59,7 @@ export default function TextAndImageCard({
     >
       <Image imageUrl={image.url} />
       <Info>
-        <h4>{page.headline}</h4>
+        <h3>{page.headline}</h3>
         <StyledLink href={link}>mehr</StyledLink>
       </Info>
     </Container>

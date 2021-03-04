@@ -39,9 +39,6 @@ const GlobalStyle = createGlobalStyle`
   h3{
     ${font.headline3}
   }
-  h4{
-    ${font.headline4}
-  }
   div, span, p, a {
     ${font.text}
   }
