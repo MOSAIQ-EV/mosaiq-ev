@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { PageContent_pageCollection_items_contentCollection_items_TeaserSlider_itemsCollection_items } from "../generated/PageContent";
 import color from "../styles/color";
 import { aspectRatio, boxShadow, hoverAnimation } from "../styles/mixins";
+import Img from "./Img";
 import Link from "./Link";
 
 const Container = styled.div`
@@ -18,17 +19,6 @@ const Container = styled.div`
   ${hoverAnimation}
 `;
 
-const Image = styled.div<{ imageUrl: string }>`
-  ${aspectRatio(5 / 3)}
-  background-image: ${(p) =>
-    `url(${
-      p.imageUrl +
-      (p.imageUrl.includes("images.ctfassets") ? "?fm=jpg&q=20" : "")
-    })`};
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
-
 const Info = styled.div`
   background: ${color.white};
   padding: 1rem;
@@ -38,6 +28,10 @@ const Info = styled.div`
 const StyledLink = styled(Link)`
   display: block;
   text-align: right;
+`;
+
+const Image = styled(Img)`
+  overflow: visible;
 `;
 
 export default function TextAndImageCard({
@@ -57,7 +51,7 @@ export default function TextAndImageCard({
         router.push(link);
       }}
     >
-      <Image imageUrl={image.url} />
+      <Image {...image} width={300} height={180} />
       <Info>
         <h3>{page.headline}</h3>
         <StyledLink href={link}>mehr</StyledLink>

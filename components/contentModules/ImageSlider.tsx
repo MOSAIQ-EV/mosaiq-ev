@@ -15,12 +15,12 @@ const Container = styled.section`
 `;
 
 const SliderImage = styled(Img)`
-  width: 300px;
-  height: 300px;
   ${boxShadow};
   border-radius: 0.5rem;
   cursor: pointer;
   ${hoverAnimation}
+  width: 300px;
+  height: 300px;
 `;
 
 const Fullscreen = styled.div`
@@ -61,7 +61,6 @@ const FullScreenImage = styled(Img)`
 
 const CloseIcon = styled(Close)`
   position: absolute;
-
   top: 1rem;
   right: 1rem;
   width: 1.5rem;
@@ -102,8 +101,9 @@ export default function ImageSlider({
         {images.map((e, i) => (
           <SliderImage
             {...e}
+            width={300}
+            height={300}
             key={i}
-            aspectRatio={1 / 1}
             onClick={() => setFullscreenImage(i)}
           />
         ))}

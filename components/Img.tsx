@@ -37,6 +37,8 @@ type Props = image_image & {
   className?: string;
   onClick?: () => void;
   aspectRatio?: number;
+  width?: number;
+  height?: number;
 };
 
 export default function Img({
@@ -45,6 +47,8 @@ export default function Img({
   aspectRatio,
   url,
   description,
+  width,
+  height,
 }: Props) {
   const meta = getMeta(description);
   return (
@@ -53,7 +57,24 @@ export default function Img({
       onClick={onClick}
       aspectRatio={aspectRatio}
     >
-      <StyledImage src={url} layout="fill" alt={meta.description} priority />
+      {width && height && (
+        <StyledImage
+          width={width}
+          height={height}
+          src={url}
+          layout={"intrinsic"}
+          alt={meta.description}
+          priority
+        />
+      )}
+      {(!width || !height) && (
+        <StyledImage
+          src={url}
+          layout={"fill"}
+          alt={meta.description}
+          priority
+        />
+      )}
       {meta.author && <Author>© {meta.author}</Author>}
     </Container>
   );

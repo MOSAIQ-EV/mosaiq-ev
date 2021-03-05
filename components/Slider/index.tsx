@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useState } from "react";
+import React, { ReactNode, useCallback, useRef, useState } from "react";
 import styled from "styled-components";
 
 import useEvent from "../../hooks/useEvent";
@@ -68,17 +68,18 @@ export default function Slider({ children }: Props) {
   const [showRightArrow, setShowRightArrow] = useState(false);
   const [hasOverflow, setHasOverflow] = useState(false);
 
-  const resizeHandler = () => {
+  const resizeHandler = useCallback(() => {
     if (sliderRef.current) {
       const { scrollLeft, scrollWidth } = sliderRef.current;
       setShowLeftArrow(scrollLeft > 0);
       setShowRightArrow(scrollWidth - scrollLeft > window.innerWidth);
       setHasOverflow(scrollWidth > window.innerWidth);
     }
-  };
+  }, []);
 
   useEvent("resize", resizeHandler, { initCallback: true });
-  const handleArrowClick = (direction: Direction) => {
+
+  const handleArrowClick = useCallback((direction: Direction) => {
     if (sliderRef.current) {
       const itemWidth = sliderRef.current.children[0].clientWidth;
       sliderRef.current.scrollTo({
@@ -88,7 +89,7 @@ export default function Slider({ children }: Props) {
         behavior: "smooth",
       });
     }
-  };
+  }, []);
 
   return (
     <Wrapper>
