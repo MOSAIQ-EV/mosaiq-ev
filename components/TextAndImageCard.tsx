@@ -32,6 +32,9 @@ const StyledLink = styled(Link)`
 
 const Image = styled(Img)`
   overflow: visible;
+  height: 180px;
+  width: 300px;
+  position: relative;
 `;
 
 export default function TextAndImageCard({
