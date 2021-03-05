@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_TeaserSlider_itemsCollection_items } from "../generated/PageContent";
 import color from "../styles/color";
-import { aspectRatio, boxShadow, hoverAnimation } from "../styles/mixins";
+import { boxShadow, hoverAnimation } from "../styles/mixins";
 import Img from "./Img";
 import Link from "./Link";
 
