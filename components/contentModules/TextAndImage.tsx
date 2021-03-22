@@ -90,7 +90,7 @@ export default function TextAndImage({
   }, [router, text.link?.sys?.id]);
   return (
     <ContentSection>
-      <Container reverse={reverse} hasLink={text.link}>
+      <Container reverse={reverse} hasLink={!!text.link}>
         <Image
           {...image}
           aspectRatio={4 / 3}
