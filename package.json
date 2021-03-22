@@ -18,6 +18,7 @@
     "react": "17.0.1",
     "react-collapse": "^5.1.0",
     "react-dom": "17.0.1",
+    "react-styled-frame": "^1.1.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

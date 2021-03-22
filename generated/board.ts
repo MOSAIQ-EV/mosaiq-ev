@@ -7,16 +7,11 @@
 // GraphQL fragment: board
 // ====================================================
 
-export interface board_memberCollection_items_image {
-  url: string | null;
-  description: string | null;
-}
-
 export interface board_memberCollection_items {
-  image: board_memberCollection_items_image | null;
   name: string | null;
   role: string | null;
-  email: string | null;
+  hideFromGoogle: boolean | null;
+  mail: string | null;
 }
 
 export interface board_memberCollection {
@@ -24,5 +19,6 @@ export interface board_memberCollection {
 }
 
 export interface board {
+  title: string | null;
   memberCollection: board_memberCollection | null;
 }

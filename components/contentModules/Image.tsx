@@ -19,7 +19,7 @@ export const ImageBox = styled(Img)`
   }
 `;
 
-const Wrapper = styled.div<{ small?: boolean }>`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   ${Container} {
@@ -33,7 +33,6 @@ const Wrapper = styled.div<{ small?: boolean }>`
     }
   }
   ${upFromBreakpoint("medium")} {
-    ${(p) => p.small && "width: 70%;"};
     padding-left: 10%;
     padding-right: 5%;
     ${Container} {
@@ -56,11 +55,10 @@ export default function Image({
   image,
   description,
   link,
-  small,
 }: PageContent_pageCollection_items_contentCollection_items_Image) {
   return (
     <ContentSection>
-      <Wrapper small={small}>
+      <Wrapper>
         <ImageBox {...image} aspectRatio={16 / 10} />
         {description && (
           <TextBox text={description} link={link} document={null} />

@@ -32,13 +32,14 @@ const Image = styled(Img)`
   }
 `;
 
-const Container = styled.div<{ reverse: boolean }>`
+const Container = styled.div<{ reverse: boolean; hasLink: boolean }>`
   display: flex;
   flex-direction: column;
-  ${hoverAnimation};
   ${upFromBreakpoint("medium")} {
     ${(p) =>
+      p.hasLink &&
       css`
+        ${hoverAnimation};
         @media (hover: hover) and (pointer: fine) {
           transition: transform 200ms ease-in-out;
           :hover {
@@ -89,7 +90,7 @@ export default function TextAndImage({
   }, [router, text.link?.sys?.id]);
   return (
     <ContentSection>
-      <Container reverse={reverse}>
+      <Container reverse={reverse} hasLink={text.link}>
         <Image
           {...image}
           aspectRatio={4 / 3}

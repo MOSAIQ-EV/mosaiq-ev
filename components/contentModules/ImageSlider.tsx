@@ -32,7 +32,7 @@ const Fullscreen = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: ${color.yellowSecondary};
   z-index: 2;
 `;
 
@@ -48,14 +48,13 @@ const GlobalStyle = createGlobalStyle`
 const FullScreenImage = styled(Img)`
   border-radius: 0.5rem;
   position: relative;
-  width: auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 4rem);
   img {
-    position: relative;
     object-fit: contain;
-    max-width: calc(100vw - 2rem);
-    max-height: calc(100vh - 4rem);
-    width: auto;
-    height: auto;
   }
 `;
 
@@ -65,7 +64,7 @@ const CloseIcon = styled(Close)`
   right: 1rem;
   width: 1.5rem;
   height: 1.5rem;
-  color: ${color.white};
+  color: ${color.purple};
   cursor: pointer;
   transition: transform 200ms ease-in-out;
   :hover {

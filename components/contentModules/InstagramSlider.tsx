@@ -10,7 +10,7 @@ export default function InstagramSlider() {
 
   useEffect(() => {
     fetch(
-      "https://graph.instagram.com/v1.0/17841407859198546/media?access_token=IGQVJWZAmZAMcXd0blFTNDRMazRVbTJueUZAjcEhWRVZApRXhqVHoxVXdhVVU3TlNZAc0JBR1o3VUdReEVZAMTNleldiQm5ySE1oNjFMTENNdkFRMzJaVlNHMUpVYzdDM1J3ZA1piRHJnbU9tdFBxMk9QV2d4XwZDZD%0A&fields=media_url,media_type&limit=25",
+      "https://graph.instagram.com/v1.0/17841407859198546/media?access_token=IGQVJWZAmZAMcXd0blFTNDRMazRVbTJueUZAjcEhWRVZApRXhqVHoxVXdhVVU3TlNZAc0JBR1o3VUdReEVZAMTNleldiQm5ySE1oNjFMTENNdkFRMzJaVlNHMUpVYzdDM1J3ZA1piRHJnbU9tdFBxMk9QV2d4XwZDZD%0A&fields=media_url,media_type&limit=50",
     )
       .then((res) => res.json())
       .then(({ data }) =>

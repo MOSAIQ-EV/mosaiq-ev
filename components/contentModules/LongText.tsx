@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 import { PageContent_pageCollection_items_contentCollection_items_LongText } from "../../generated/PageContent";
@@ -61,15 +61,15 @@ const WAVES = [
 export default function LongText({
   text,
   backgroundColor,
+  children,
 }: PageContent_pageCollection_items_contentCollection_items_LongText & {
   backgroundColor: string;
+  children?: ReactNode;
 }) {
   return (
     <WavedContainer backgroundColor={backgroundColor}>
       <Content>
-        <div>
-          <RichText document={text.json} />
-        </div>
+        <div>{children ? children : <RichText document={text.json} />}</div>
       </Content>
       <WaveSvgClipPath
         id={`long-text-wave`}

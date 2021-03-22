@@ -28,5 +28,4 @@ export interface image {
   image: image_image | null;
   description: image_description | null;
   link: image_link | null;
-  small: boolean | null;
 }

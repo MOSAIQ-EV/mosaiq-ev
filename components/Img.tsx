@@ -10,6 +10,7 @@ const Container = styled.div<{ aspectRatio?: number }>`
   overflow: hidden;
   ${(p) => p.aspectRatio && aspectRatio(p.aspectRatio)}
   background: ${color.yellowSecondary};
+  position: relative;
 `;
 
 const StyledImage = styled(Image)<ImageProps>`
@@ -62,7 +63,7 @@ export default function Img({
           width={width}
           height={height}
           src={url}
-          layout={"intrinsic"}
+          layout={"responsive"}
           alt={meta.description}
           priority
         />

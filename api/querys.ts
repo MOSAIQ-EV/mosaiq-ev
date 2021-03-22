@@ -23,6 +23,8 @@ export const Page_Content = gql`
             ...accordion
             ...video
             ...instagram
+            ...supporterLogo
+            ...board
           }
         }
       }
@@ -75,7 +77,6 @@ export const Page_Content = gql`
         id
       }
     }
-    small
   }
 
   fragment imageSlider on ImageSlider {
@@ -133,5 +134,29 @@ export const Page_Content = gql`
 
   fragment instagram on Instagram {
     name
+  }
+
+  fragment supporterLogo on SupporterLogo {
+    description {
+      json
+    }
+    image {
+      url
+      description
+      width
+      height
+    }
+  }
+
+  fragment board on Board {
+    title
+    memberCollection(limit: 10) {
+      items {
+        name
+        role
+        hideFromGoogle
+        mail
+      }
+    }
   }
 `;
