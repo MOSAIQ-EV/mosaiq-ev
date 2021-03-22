@@ -130,7 +130,11 @@ export default function Footer() {
           </IconContainer>
         </Box>
         <Row>
-          <NavItem href={"/impressum"}>Impressum</NavItem>
+          <div>
+            <NavItem href={"/impressum"}>Impressum</NavItem>
+            {" | "}
+            <NavItem href={"/datenschutz"}>Datenschutz</NavItem>
+          </div>
           <span>@MOSAIQ {new Date().getFullYear()}</span>
         </Row>
       </Container>
