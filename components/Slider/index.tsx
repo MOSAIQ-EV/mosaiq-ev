@@ -14,6 +14,7 @@ export const Scroll = styled.div`
   height: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
+  padding: 1rem 0;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
