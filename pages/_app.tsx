@@ -1,8 +1,9 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
-import { createGlobalStyle, css } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 
+import { Logo } from "../components/Icons";
 import Skeleton from "../components/Skeleton";
 import { font } from "../components/Typography";
 import color from "../styles/color";
@@ -61,6 +62,15 @@ const fontFace = css`
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 10%;
+`;
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -71,9 +81,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="robots" content="noindex" />
         <meta name="format-detection" content="telephone=no" />
       </Head>
-      <Skeleton>
-        <Component {...pageProps} />
-      </Skeleton>
+      <Container>
+        <Logo />
+        <br />
+        <br />
+        <h1>im Aufbau</h1>
+      </Container>
       <GlobalStyle />
     </>
   );
