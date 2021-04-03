@@ -91,6 +91,8 @@ export interface PageContent_pageCollection_items_contentCollection_items_Image 
 export interface PageContent_pageCollection_items_contentCollection_items_ImageSlider_imagesCollection_items {
   description: string | null;
   url: string | null;
+  width: number | null;
+  height: number | null;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_ImageSlider_imagesCollection {

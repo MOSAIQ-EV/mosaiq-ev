@@ -1,3 +1,4 @@
+import Image, { ImageProps } from "next/image";
 import React, { useRef, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
@@ -8,7 +9,6 @@ import { Close } from "../Icons";
 import Img from "../Img";
 import Slider from "../Slider";
 import Arrow from "../Slider/Arrow";
-
 const Container = styled.section`
   margin: 2rem 0;
   user-select: none;
@@ -45,14 +45,11 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const FullScreenImage = styled(Img)`
+const FsImage = styled.div`
   border-radius: 0.5rem;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   max-width: calc(100vw - 2rem);
   max-height: calc(100vh - 4rem);
+  overflow: hidden;
   img {
     object-fit: contain;
   }
@@ -118,7 +115,8 @@ export default function ImageSlider({
               }
             }}
           >
-            <FullScreenImage {...images[fullscreenImage]} />
+            <Image src={images[fullscreenImage].url} layout="fill" />
+            {/* <FullScreenImage {...images[fullscreenImage]} /> */}
 
             <StyledArrow
               direction="left"

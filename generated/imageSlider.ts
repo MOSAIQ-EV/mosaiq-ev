@@ -10,6 +10,8 @@
 export interface imageSlider_imagesCollection_items {
   description: string | null;
   url: string | null;
+  width: number | null;
+  height: number | null;
 }
 
 export interface imageSlider_imagesCollection {

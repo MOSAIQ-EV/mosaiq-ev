@@ -84,6 +84,8 @@ export const Page_Content = gql`
       items {
         description
         url
+        width
+        height
       }
     }
   }
