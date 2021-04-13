@@ -32,6 +32,7 @@ export default function InstagramSlider() {
     <ImageSlider
       __typename="ImageSlider"
       imagesCollection={{ items: data || [] }}
+      unoptimized
     />
   );
 }
