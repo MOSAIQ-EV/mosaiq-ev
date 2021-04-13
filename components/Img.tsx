@@ -40,6 +40,7 @@ type Props = image_image & {
   aspectRatio?: number;
   width?: number;
   height?: number;
+  unoptimized?: boolean;
 };
 
 export default function Img({
@@ -50,6 +51,7 @@ export default function Img({
   description,
   width,
   height,
+  unoptimized,
 }: Props) {
   const meta = getMeta(description);
   return (
@@ -66,6 +68,7 @@ export default function Img({
           layout={"responsive"}
           alt={meta.description}
           priority
+          unoptimized={unoptimized}
         />
       )}
       {(!width || !height) && (
@@ -74,6 +77,7 @@ export default function Img({
           layout={"fill"}
           alt={meta.description}
           priority
+          unoptimized={unoptimized}
         />
       )}
       {meta.author && <Author>© {meta.author}</Author>}
