@@ -1,10 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 
-import {
-  PageContent_pageCollection_items_contentCollection_items_LongText,
-  PageContent_pageCollection_items_contentCollection_items_LongText_text,
-} from "../../generated/PageContent";
+import { PageContent_pageCollection_items_contentCollection_items_LongText } from "../../generated/PageContent";
 import color from "../../styles/color";
 import { upFromBreakpoint } from "../../styles/mediaQueries";
 import { maxWidth, sectionPadding } from "../../styles/mixins";

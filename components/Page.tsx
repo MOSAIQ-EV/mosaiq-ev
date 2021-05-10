@@ -25,7 +25,7 @@ export default function Page({
 }: PageContent & {
   colors: string[];
   title: string;
-  instagramImages: string[];
+  instagramImages?: string[];
   noPageHeadlineOverlay?: boolean;
 }) {
   const { headline: pageHeadline, meta } = pageCollection?.items[0];
@@ -104,12 +104,15 @@ export default function Page({
           case "Video":
             return <Video key={c.__typename + i} {...c} />;
           case "Instagram":
-            return (
-              <InstagramSlider
-                key={c.__typename + i}
-                images={instagramImages}
-              />
-            );
+            if (instagramImages) {
+              return (
+                <InstagramSlider
+                  key={c.__typename + i}
+                  images={instagramImages}
+                />
+              );
+            }
+            return null;
           case "Board":
             return (
               <Board

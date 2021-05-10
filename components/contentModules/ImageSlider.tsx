@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import React, { useRef, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
@@ -45,15 +45,15 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const FsImage = styled.div`
-  border-radius: 0.5rem;
-  max-width: calc(100vw - 2rem);
-  max-height: calc(100vh - 4rem);
-  overflow: hidden;
-  img {
-    object-fit: contain;
-  }
-`;
+// const FsImage = styled.div`
+//   border-radius: 0.5rem;
+//   max-width: calc(100vw - 2rem);
+//   max-height: calc(100vh - 4rem);
+//   overflow: hidden;
+//   img {
+//     object-fit: contain;
+//   }
+// `;
 
 const CloseIcon = styled(Close)`
   position: absolute;

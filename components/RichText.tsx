@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { longText_text_links } from "../generated/longText";
 import color from "../styles/color";
-import { upFromBreakpoint, upToBreakpoint } from "../styles/mediaQueries";
+import { upFromBreakpoint } from "../styles/mediaQueries";
 import Img from "./Img";
 
 const Container = styled.div`
