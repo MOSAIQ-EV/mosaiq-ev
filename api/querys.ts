@@ -23,7 +23,6 @@ export const Page_Content = gql`
             ...accordion
             ...video
             ...instagram
-            ...supporterLogo
             ...board
           }
         }
@@ -90,7 +89,7 @@ export const Page_Content = gql`
     }
   }
   fragment teaserSlider on TeaserSlider {
-    itemsCollection {
+    itemsCollection(limit: 5) {
       items {
         image {
           url
@@ -120,6 +119,13 @@ export const Page_Content = gql`
   fragment longText on LongText {
     text {
       json
+      links {
+        assets {
+          block {
+            url
+          }
+        }
+      }
     }
   }
 
@@ -138,21 +144,9 @@ export const Page_Content = gql`
     name
   }
 
-  fragment supporterLogo on SupporterLogo {
-    description {
-      json
-    }
-    image {
-      url
-      description
-      width
-      height
-    }
-  }
-
   fragment board on Board {
     title
-    memberCollection(limit: 10) {
+    memberCollection(limit: 7) {
       items {
         name
         role
