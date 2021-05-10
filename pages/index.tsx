@@ -9,22 +9,6 @@ import { PageContent } from "../generated/PageContent";
 import { mainColor } from "../styles/color";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const instagramClient = new Instagram({
-    username: "",
-    password: "",
-  });
-  let instagramImages: string[];
-
-  const instagram = await instagramClient.getPhotosByUsername({
-    username: "mosaiq_hamburg",
-  });
-
-  if (instagram["user"]["edge_owner_to_timeline_media"]["count"] > 0) {
-    instagramImages = instagram["user"]["edge_owner_to_timeline_media"][
-      "edges"
-    ].map((e) => e.node.display_url) as string[];
-  }
-
   const data = await client.request(Page_Content, {
     name: "Startseite",
     id: "",
@@ -36,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     };
   }
   return {
-    props: { ...data, instagramImages },
+    props: { ...data, instagramImages: [] },
   };
 };
 
