@@ -41,21 +41,8 @@ export interface PageContent_pageCollection_items_contentCollection_items_TextAn
   document: PageContent_pageCollection_items_contentCollection_items_TextAndImage_document | null;
 }
 
-export interface PageContent_pageCollection_items_contentCollection_items_Text_text_links_assets_block {
-  url: string | null;
-}
-
-export interface PageContent_pageCollection_items_contentCollection_items_Text_text_links_assets {
-  block: (PageContent_pageCollection_items_contentCollection_items_Text_text_links_assets_block | null)[];
-}
-
-export interface PageContent_pageCollection_items_contentCollection_items_Text_text_links {
-  assets: PageContent_pageCollection_items_contentCollection_items_Text_text_links_assets;
-}
-
 export interface PageContent_pageCollection_items_contentCollection_items_Text_text {
   json: ContentfulJSON;
-  links: PageContent_pageCollection_items_contentCollection_items_Text_text_links;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_Text_link_sys {
@@ -181,21 +168,8 @@ export interface PageContent_pageCollection_items_contentCollection_items_LongTe
   text: PageContent_pageCollection_items_contentCollection_items_LongText_text | null;
 }
 
-export interface PageContent_pageCollection_items_contentCollection_items_Accordion_text_links_assets_block {
-  url: string | null;
-}
-
-export interface PageContent_pageCollection_items_contentCollection_items_Accordion_text_links_assets {
-  block: (PageContent_pageCollection_items_contentCollection_items_Accordion_text_links_assets_block | null)[];
-}
-
-export interface PageContent_pageCollection_items_contentCollection_items_Accordion_text_links {
-  assets: PageContent_pageCollection_items_contentCollection_items_Accordion_text_links_assets;
-}
-
 export interface PageContent_pageCollection_items_contentCollection_items_Accordion_text {
   json: ContentfulJSON;
-  links: PageContent_pageCollection_items_contentCollection_items_Accordion_text_links;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_Accordion {
