@@ -69,7 +69,13 @@ export default function LongText({
   return (
     <WavedContainer backgroundColor={backgroundColor}>
       <Content>
-        <div>{children ? children : <RichText document={text.json} />}</div>
+        <div>
+          {children ? (
+            children
+          ) : (
+            <RichText document={text.json} links={text.links} />
+          )}
+        </div>
       </Content>
       <WaveSvgClipPath
         id={`long-text-wave`}

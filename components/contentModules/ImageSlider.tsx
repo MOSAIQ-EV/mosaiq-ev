@@ -1,4 +1,4 @@
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import React, { useRef, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
@@ -45,15 +45,15 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const FsImage = styled.div`
-  border-radius: 0.5rem;
-  max-width: calc(100vw - 2rem);
-  max-height: calc(100vh - 4rem);
-  overflow: hidden;
-  img {
-    object-fit: contain;
-  }
-`;
+// const FsImage = styled.div`
+//   border-radius: 0.5rem;
+//   max-width: calc(100vw - 2rem);
+//   max-height: calc(100vh - 4rem);
+//   overflow: hidden;
+//   img {
+//     object-fit: contain;
+//   }
+// `;
 
 const CloseIcon = styled(Close)`
   position: absolute;
@@ -76,7 +76,10 @@ const StyledArrow = styled(Arrow)`
 
 export default function ImageSlider({
   imagesCollection,
-}: PageContent_pageCollection_items_contentCollection_items_ImageSlider) {
+  unoptimized,
+}: PageContent_pageCollection_items_contentCollection_items_ImageSlider & {
+  unoptimized?: boolean;
+}) {
   const [fullscreenImage, setFullscreenImage] = useState<number>();
   const fullScreenContainer = useRef<HTMLDivElement>(null);
 
@@ -101,6 +104,7 @@ export default function ImageSlider({
             height={300}
             key={i}
             onClick={() => setFullscreenImage(i)}
+            unoptimized={unoptimized}
           />
         ))}
       </Slider>
@@ -115,9 +119,11 @@ export default function ImageSlider({
               }
             }}
           >
-            <Image src={images[fullscreenImage].url} layout="fill" />
-            {/* <FullScreenImage {...images[fullscreenImage]} /> */}
-
+            <Image
+              src={images[fullscreenImage].url}
+              layout="fill"
+              unoptimized={unoptimized}
+            />
             <StyledArrow
               direction="left"
               onClick={prevImage}

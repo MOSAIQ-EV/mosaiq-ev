@@ -9,7 +9,6 @@ import Image from "./contentModules/Image";
 import ImageSlider from "./contentModules/ImageSlider";
 import InstagramSlider from "./contentModules/InstagramSlider";
 import LongText from "./contentModules/LongText";
-import SupporterLogo from "./contentModules/SupporterLogo";
 import TeaserSlider from "./contentModules/TeaserSlider";
 import Text from "./contentModules/Text";
 import TextAndImage from "./contentModules/TextAndImage";
@@ -22,9 +21,11 @@ export default function Page({
   colors,
   title,
   noPageHeadlineOverlay,
+  instagramImages,
 }: PageContent & {
   colors: string[];
   title: string;
+  instagramImages?: string[];
   noPageHeadlineOverlay?: boolean;
 }) {
   const { headline: pageHeadline, meta } = pageCollection?.items[0];
@@ -103,9 +104,15 @@ export default function Page({
           case "Video":
             return <Video key={c.__typename + i} {...c} />;
           case "Instagram":
-            return <InstagramSlider key={c.__typename + i} {...c} />;
-          case "SupporterLogo":
-            return <SupporterLogo key={c.__typename + i} {...c} />;
+            if (instagramImages) {
+              return (
+                <InstagramSlider
+                  key={c.__typename + i}
+                  images={instagramImages}
+                />
+              );
+            }
+            return null;
           case "Board":
             return (
               <Board

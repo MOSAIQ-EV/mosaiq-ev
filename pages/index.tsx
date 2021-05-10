@@ -1,3 +1,4 @@
+import Instagram from "instagram-web-api";
 import { GetServerSideProps } from "next";
 import React from "react";
 
@@ -19,11 +20,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
     };
   }
   return {
-    props: { ...data },
+    props: { ...data, instagramImages: [] },
   };
 };
 
-export default function StartPage(props: PageContent) {
+export default function StartPage(
+  props: PageContent & { instagramImages: string[] },
+) {
   return (
     <Page
       {...props}

@@ -146,8 +146,21 @@ export interface PageContent_pageCollection_items_contentCollection_items_Event 
   highlight: boolean | null;
 }
 
+export interface PageContent_pageCollection_items_contentCollection_items_LongText_text_links_assets_block {
+  url: string | null;
+}
+
+export interface PageContent_pageCollection_items_contentCollection_items_LongText_text_links_assets {
+  block: (PageContent_pageCollection_items_contentCollection_items_LongText_text_links_assets_block | null)[];
+}
+
+export interface PageContent_pageCollection_items_contentCollection_items_LongText_text_links {
+  assets: PageContent_pageCollection_items_contentCollection_items_LongText_text_links_assets;
+}
+
 export interface PageContent_pageCollection_items_contentCollection_items_LongText_text {
   json: ContentfulJSON;
+  links: PageContent_pageCollection_items_contentCollection_items_LongText_text_links;
 }
 
 export interface PageContent_pageCollection_items_contentCollection_items_LongText {
@@ -175,23 +188,6 @@ export interface PageContent_pageCollection_items_contentCollection_items_Instag
   name: string | null;
 }
 
-export interface PageContent_pageCollection_items_contentCollection_items_SupporterLogo_description {
-  json: ContentfulJSON;
-}
-
-export interface PageContent_pageCollection_items_contentCollection_items_SupporterLogo_image {
-  url: string | null;
-  description: string | null;
-  width: number | null;
-  height: number | null;
-}
-
-export interface PageContent_pageCollection_items_contentCollection_items_SupporterLogo {
-  __typename: "SupporterLogo";
-  description: PageContent_pageCollection_items_contentCollection_items_SupporterLogo_description | null;
-  image: PageContent_pageCollection_items_contentCollection_items_SupporterLogo_image | null;
-}
-
 export interface PageContent_pageCollection_items_contentCollection_items_Board_memberCollection_items {
   name: string | null;
   role: string | null;
@@ -209,7 +205,7 @@ export interface PageContent_pageCollection_items_contentCollection_items_Board 
   memberCollection: PageContent_pageCollection_items_contentCollection_items_Board_memberCollection | null;
 }
 
-export type PageContent_pageCollection_items_contentCollection_items = PageContent_pageCollection_items_contentCollection_items_SectionHeadline | PageContent_pageCollection_items_contentCollection_items_TextAndImage | PageContent_pageCollection_items_contentCollection_items_Text | PageContent_pageCollection_items_contentCollection_items_Image | PageContent_pageCollection_items_contentCollection_items_ImageSlider | PageContent_pageCollection_items_contentCollection_items_TeaserSlider | PageContent_pageCollection_items_contentCollection_items_Event | PageContent_pageCollection_items_contentCollection_items_LongText | PageContent_pageCollection_items_contentCollection_items_Accordion | PageContent_pageCollection_items_contentCollection_items_Video | PageContent_pageCollection_items_contentCollection_items_Instagram | PageContent_pageCollection_items_contentCollection_items_SupporterLogo | PageContent_pageCollection_items_contentCollection_items_Board;
+export type PageContent_pageCollection_items_contentCollection_items = PageContent_pageCollection_items_contentCollection_items_SectionHeadline | PageContent_pageCollection_items_contentCollection_items_TextAndImage | PageContent_pageCollection_items_contentCollection_items_Text | PageContent_pageCollection_items_contentCollection_items_Image | PageContent_pageCollection_items_contentCollection_items_ImageSlider | PageContent_pageCollection_items_contentCollection_items_TeaserSlider | PageContent_pageCollection_items_contentCollection_items_Event | PageContent_pageCollection_items_contentCollection_items_LongText | PageContent_pageCollection_items_contentCollection_items_Accordion | PageContent_pageCollection_items_contentCollection_items_Video | PageContent_pageCollection_items_contentCollection_items_Instagram | PageContent_pageCollection_items_contentCollection_items_Board;
 
 export interface PageContent_pageCollection_items_contentCollection {
   items: (PageContent_pageCollection_items_contentCollection_items | null)[];
