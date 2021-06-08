@@ -30,9 +30,9 @@ export default function BookingOffers(props: PageContent) {
       title="MOSAIQ buchen & Angebote"
       colors={[
         mainColor.purple,
+        mainColor.green,
         mainColor.blue,
         mainColor.red,
-        mainColor.green,
       ]}
     />
   );
