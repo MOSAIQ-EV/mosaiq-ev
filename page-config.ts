@@ -17,6 +17,11 @@ export const navPaths = {
     name: "Veröffentlichungen",
     color: color.redSecondary,
   },
+  booking: {
+    path: "/buchen-angebote",
+    name: "MOSAIQ buchen & Angebote",
+    color: color.blueSecondary,
+  },
 };
 
 export const footerPaths = {
