@@ -1,7 +1,10 @@
 import Head from "next/head";
 import React, { useCallback, useRef } from "react";
 
-import { PageContent } from "../generated/PageContent";
+import {
+  PageContent,
+  PageContent_pageCollection_items_contentCollection_items_ImageSlider_imagesCollection_items,
+} from "../generated/PageContent";
 import Accordion from "./contentModules/Accordion";
 import Board from "./contentModules/Board";
 import Event from "./contentModules/Event";
@@ -25,7 +28,7 @@ export default function Page({
 }: PageContent & {
   colors: string[];
   title: string;
-  instagramImages?: string[];
+  instagramImages: PageContent_pageCollection_items_contentCollection_items_ImageSlider_imagesCollection_items[];
   noPageHeadlineOverlay?: boolean;
 }) {
   const { headline: pageHeadline, meta } = pageCollection?.items[0];
@@ -105,7 +108,12 @@ export default function Page({
             return <Video key={c.__typename + i} {...c} />;
           case "Instagram":
             if (instagramImages) {
-              return <InstagramSlider key={c.__typename + i} />;
+              return (
+                <InstagramSlider
+                  key={c.__typename + i}
+                  images={instagramImages}
+                />
+              );
             }
             return null;
           case "Board":
