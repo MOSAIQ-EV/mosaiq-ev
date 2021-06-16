@@ -28,7 +28,7 @@ export default function Page({
 }: PageContent & {
   colors: string[];
   title: string;
-  instagramImages: PageContent_pageCollection_items_contentCollection_items_ImageSlider_imagesCollection_items[];
+  instagramImages?: PageContent_pageCollection_items_contentCollection_items_ImageSlider_imagesCollection_items[];
   noPageHeadlineOverlay?: boolean;
 }) {
   const { headline: pageHeadline, meta } = pageCollection?.items[0];
