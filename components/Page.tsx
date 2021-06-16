@@ -105,12 +105,7 @@ export default function Page({
             return <Video key={c.__typename + i} {...c} />;
           case "Instagram":
             if (instagramImages) {
-              return (
-                <InstagramSlider
-                  key={c.__typename + i}
-                  images={instagramImages}
-                />
-              );
+              return <InstagramSlider key={c.__typename + i} />;
             }
             return null;
           case "Board":
