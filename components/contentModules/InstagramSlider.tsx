@@ -1,27 +1,17 @@
-import React, { useMemo } from "react";
+import React from "react";
 
+import { PageContent_pageCollection_items_contentCollection_items_ImageSlider_imagesCollection_items } from "../../generated/PageContent";
 import ImageSlider from "./ImageSlider";
 
-type Props = {
-  images: string[];
-};
-
-export default function InstagramSlider({ images }: Props) {
-  const imageCollection = useMemo(
-    () =>
-      images.map((img) => ({
-        url: img,
-        description: "Bild vom MOSAIQ Instagram Account",
-        width: null,
-        height: null,
-      })),
-    [images],
-  );
-
+export default function InstagramSlider({
+  images,
+}: {
+  images: PageContent_pageCollection_items_contentCollection_items_ImageSlider_imagesCollection_items[];
+}) {
   return (
     <ImageSlider
       __typename="ImageSlider"
-      imagesCollection={{ items: imageCollection }}
+      imagesCollection={{ items: images }}
       unoptimized
     />
   );

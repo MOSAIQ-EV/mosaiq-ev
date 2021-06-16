@@ -76,10 +76,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>MOSAIQ e.V.</title>
+        <meta
+          name="description"
+          content="MOSAIQ e.V. arbeitet rassismus- und machtkritisch und gibt marginalisierten Stimmen eine Plattform, sich in gesellschaftliche Diskurse einzumischen, diese zu hinterfragen und neu zu bestimmen."
+        />
         <link rel="preload" href="https://fonts.gstatic.com" />
         <style>{fontFace}</style>
-        <meta name="robots" content="noindex" />
-        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="telephone=yes" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        ></meta>
       </Head>
       <Container>
         <Logo />

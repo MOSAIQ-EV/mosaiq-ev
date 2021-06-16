@@ -24,8 +24,7 @@ const RatioContainer = styled.div`
 
 const getVideoIdFromUrl = (url: string, type: "youtube" | "vimeo") => {
   if (type === "youtube") {
-    const matches = url.match(new RegExp("v=" + "(.*)" + "&"));
-    return matches && matches[1];
+    return url.split("v=")[1];
   }
   if (type === "vimeo") {
     const matches = url.match(/\d+/g);
