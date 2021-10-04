@@ -94,6 +94,7 @@ export default function ImageSlider({
       setFullscreenImage(fullscreenImage - 1);
     }
   };
+
   return (
     <Container>
       <Slider>
