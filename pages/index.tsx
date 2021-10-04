@@ -34,8 +34,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
             url: img.media_url,
             description: "Bild vom MOSAIQ Instagram Account",
           })),
-      )
-      .catch(() => null);
+      );
+
     return {
       props: { ...data, instagramImages },
     };
