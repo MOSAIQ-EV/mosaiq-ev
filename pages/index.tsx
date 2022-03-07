@@ -20,24 +20,24 @@ export const getServerSideProps: GetServerSideProps = async () => {
       ` https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${process.env.REACT_APP_INSTAGRAM_TOKEN}`,
     );
 
-    const instagramImages = await fetch(
-      `https://graph.instagram.com/v1.0/17841407859198546/media?access_token=${process.env.REACT_APP_INSTAGRAM_TOKEN}&fields=media_url,media_type&limit=50`,
-    )
-      .then((res) => res.json())
-      .then(({ data }) =>
-        (data || [])
-          .filter(
-            (i) =>
-              i.media_type === "IMAGE" || i.media_type === "CAROUSEL_ALBUM",
-          )
-          .map((img) => ({
-            url: img.media_url,
-            description: "Bild vom MOSAIQ Instagram Account",
-          })),
-      );
+    // const instagramImages = await fetch(
+    //   `https://graph.instagram.com/v1.0/17841407859198546/media?access_token=${process.env.REACT_APP_INSTAGRAM_TOKEN}&fields=media_url,media_type&limit=50`,
+    // )
+    //   .then((res) => res.json())
+    //   .then(({ data }) =>
+    //     (data || [])
+    //       .filter(
+    //         (i) =>
+    //           i.media_type === "IMAGE" || i.media_type === "CAROUSEL_ALBUM",
+    //       )
+    //       .map((img) => ({
+    //         url: img.media_url,
+    //         description: "Bild vom MOSAIQ Instagram Account",
+    //       })),
+    //   );
 
     return {
-      props: { ...data, instagramImages },
+      props: { ...data, instagramImages: [] },
     };
   } catch {
     return { props: { ...data } };
