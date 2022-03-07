@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     )
       .then((res) => res.json())
       .then(({ data }) =>
-        data
+        (data || [])
           .filter(
             (i) =>
               i.media_type === "IMAGE" || i.media_type === "CAROUSEL_ALBUM",
